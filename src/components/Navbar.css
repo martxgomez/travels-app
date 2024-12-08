@@ -1,0 +1,47 @@
+.navbar {
+  width: 100dvw;
+  background-color: gray;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.logo-container {
+  width: 20%;
+  position: absolute;
+  left: 50px;
+  font-size: 1.2em;
+}
+
+.info-container {
+  position: absolute;
+  left: 550px;
+}
+
+.info-ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 120px;
+
+  li {
+    list-style: none;
+
+    font-size: 1.1em;
+  }
+}
+
+.user-profile {
+  background-image: url("../assets/profile-image.jpeg");
+  background-size: cover;
+  background-position: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+
+  right: 50px;
+}
