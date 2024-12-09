@@ -1,7 +1,7 @@
 //style
 import "./App.css";
-
 //data
+import Footer from "./components/footer";
 
 // //react
 // import { Routes, Route } from "react-router-dom";
@@ -31,7 +31,7 @@ function App() {
           </Routes> */}
     </section>
 
-{/* <Footer /> */}
+      <Footer/> 
 </div>
     
   )
