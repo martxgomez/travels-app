@@ -12,19 +12,19 @@ function Navbar() {
       <section className="info-container">
         <ul className="info-ul">
           <li>
-            Home
-            {/* <NavLink to="/">Home</NavLink> */}
+            Welcome
+            {/* <NavLink to="/">Welcome</NavLink> */}
           </li>
           <li>
-            Your travels
-            {/* <NavLink to="/personal">Your travels</NavLink> */}
+            My Trips
+            {/* <NavLink to="/personal">My trips</NavLink> */}
           </li>
           <li>
             {" "}
-            Traveler community
-            {/* <NavLink to="/community">Traveler community</NavLink> */}
+            Travelers' Corner
+            {/* <NavLink to="/community">Travelers' Corner</NavLink> */}
           </li>
-          <li>About {/* <NavLink to="/about">About</NavLink> */}</li>
+          <li>Meet the team {/* <NavLink to="/about">Meet the team</NavLink> */}</li>
         </ul>
       </section>
 
