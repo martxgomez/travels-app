@@ -16,8 +16,7 @@ function Navbar() {
             {/* <NavLink to="/">Welcome</NavLink> */}
           </li>
           <li>
-            My Trips
-            {/* <NavLink to="/personal">My trips</NavLink> */}
+            <NavLink to="/my-trips">My trips</NavLink>
           </li>
           <li>
             {" "}

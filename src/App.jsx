@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/footer";
 
 //routes
+import MyTravelsPage from "./pages/MyTravelsPage";
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/notFound";
 
@@ -22,6 +23,7 @@ function App() {
       <section>
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/my-trips" element={<MyTravelsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
