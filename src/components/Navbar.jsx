@@ -21,10 +21,12 @@ function Navbar() {
           </li>
           <li>
             {" "}
-            Travelers' Corner
+            Travelers&apos; Community
             {/* <NavLink to="/community">Travelers' Corner</NavLink> */}
           </li>
-          <li>Meet the team {/* <NavLink to="/about">Meet the team</NavLink> */}</li>
+          <li>
+            <NavLink to="/about">Meet the team</NavLink>
+          </li>
         </ul>
       </section>
 
