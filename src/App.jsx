@@ -2,9 +2,9 @@
 import "./App.css";
 //data
 import Footer from "./components/footer";
-
+import NotFoundPage from "./pages/notFound";
 // //react
-// import { Routes, Route } from "react-router-dom";
+ import { Routes, Route } from "react-router-dom";
 // import { useState } from "react";
 
 //components
@@ -21,14 +21,9 @@ function App() {
       <Navbar/>
 
       <section>
-      {/* <Routes>
-          <Route
-            path="/"
-            element={
-              <Home />
-            }
-          />
-          </Routes> */}
+      <Routes>
+      <Route path="*" element={<NotFoundPage />} />
+     </Routes>
     </section>
 
       <Footer/> 
