@@ -14,6 +14,8 @@ import Footer from "./components/footer";
 import MyTravelsPage from "./pages/MyTravelsPage";
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/notFound";
+import Dashboardpage from "./pages/DashboardPage";
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/my-trips" element={<MyTravelsPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/" element={<Dashboardpage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </section>
