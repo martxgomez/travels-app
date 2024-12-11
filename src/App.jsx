@@ -13,6 +13,8 @@ import Footer from "./components/footer";
 //routes
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/notFound";
+import Dashboardpage from "./pages/DashboardPage";
+
 
 function App() {
   return (
@@ -23,6 +25,7 @@ function App() {
         <Routes>
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/" element={<Dashboardpage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </section>
