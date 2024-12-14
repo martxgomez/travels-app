@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import supabase from "../supabase/config";
-
+import "./TravelsCommunity.css"
 
 
 const TravelsCommunity = () => {
