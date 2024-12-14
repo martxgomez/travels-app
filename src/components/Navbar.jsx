@@ -20,9 +20,8 @@ function Navbar() {
             {/* <NavLink to="/personal">My trips</NavLink> */}
           </li>
           <li>
-            {" "}
-            Travelers&apos; Community
-            {/* <NavLink to="/community">Travelers' Corner</NavLink> */}
+        
+            { <NavLink to="/community">Community</NavLink> }
           </li>
           <li>
             <NavLink to="/about">Meet the team</NavLink>

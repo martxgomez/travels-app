@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom";
 
 //components
 import Navbar from "./components/Navbar";
+import TravelsCommunity from "./pages/TravelsCommunity";
 import Footer from "./components/footer";
 
 //routes
@@ -26,6 +27,7 @@ function App() {
           {/* <Route path="/" element={<Home />} /> */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/" element={<Dashboardpage />} />
+      <Route path="/community"  element={<TravelsCommunity />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </section>
