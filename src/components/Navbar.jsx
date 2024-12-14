@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <section className="logo-container">
-        <h1>NOMBRE PAGINA</h1>
+        <h1>ROUTIFY</h1>
       </section>
 
       <section className="info-container">
