@@ -23,7 +23,7 @@ function App() {
   async function getData() {
     try {
       const response = await supabase.from("travels").select();
-      console.log("response ", response.data);
+    
       setTravels(response.data);
     } catch (error) {
       console.log("Error from getting API: ", error);
@@ -41,7 +41,7 @@ function App() {
       <section>
         <Routes>
           <Route path="/" element={<Dashboardpage travels={travels} />} />
-          <Route path="/my-trips" element={<MyTravelsPage />} />
+          <Route path="/my-trips" element={<MyTravelsPage travels={travels} setTravels={setTravels} />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/community" element={<TravelsCommunity />} />
           <Route path="*" element={<NotFoundPage />} />
