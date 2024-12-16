@@ -1,39 +1,14 @@
-import supabase from "../supabase/config";
-import { useState, useEffect } from "react";
+import "./DashboardPage.css"
+import TravelList from "../components/travels/TravelList"
 
-function Dashboardpage () {
-    const [travels, setTravels] = useState([]);
-    async function getData () {
-        try{
-        const response = await supabase
-        .from('travels')
-        .select()
-        console.log("response ",response.data)
-        setTravels(response.data); 
-        } catch (error) {
-            console.log("Error from getting API: ", error);
-        }
-        };
-    
-        useEffect(()=> {
-            getData();
-        }, []);
+function Dashboardpage ({travels}) {
+
 
         return (
            
             <div>
-              {travels.map((travel) => {
-        return (
-            <div key={travel.id}>
-            <h2> {travel.destination}</h2>
-            <img src={travel.imageLink} alt={`Picture of ${travel.destination}`} />
-            <p> Starting from {`${travel.price}`}€</p>
-            <p> {travel.duration} days</p>
-            <p>{travel.rating} / 5 </p>
-            </div>
-            );
-        
-      })}
+                <h2>Travels List</h2>
+                <TravelList travels={travels} />
             </div>
         );
      }

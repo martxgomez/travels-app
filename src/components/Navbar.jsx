@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <section className="logo-container">
-        <h1>NOMBRE PAGINA</h1>
+        <h1>ROUTIFY</h1>
       </section>
 
       <section className="info-container">
@@ -19,9 +19,8 @@ function Navbar() {
             <NavLink to="/my-trips">My trips</NavLink>
           </li>
           <li>
-            {" "}
-            Travelers&apos; Community
-            {/* <NavLink to="/community">Travelers' Corner</NavLink> */}
+        
+            { <NavLink to="/community">Community</NavLink> }
           </li>
           <li>
             <NavLink to="/about">Meet the team</NavLink>
