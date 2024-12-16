@@ -25,7 +25,7 @@ function Navbar() {
       </section>
 
       <section className="user-profile">
-        {/* <NavLink to="/user"></NavLink> */}
+        { <NavLink to="/user"></NavLink> }
       </section>
     </nav>
   );
