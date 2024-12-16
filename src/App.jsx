@@ -15,7 +15,7 @@ import Footer from "./components/footer";
 //routes
 import MyTravelsPage from "./pages/MyTravelsPage";
 import AboutPage from "./pages/AboutPage";
-import NotFoundPage from "./pages/notFound";
+import NotFoundPage from "./pages/NotFound";
 import Dashboardpage from "./pages/DashboardPage";
 
 function App() {
