@@ -1,27 +1,23 @@
 import "./Navbar.css";
 
 import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <nav className="navbar">
       <section className="logo-container">
-        <h1>ROUTIFY</h1>
+        <Link to="/">
+          <h1>ROUTIFY</h1>
+        </Link>
       </section>
 
       <section className="info-container">
         <ul className="info-ul">
           <li>
-            Welcome
-            {/* <NavLink to="/">Welcome</NavLink> */}
-          </li>
-          <li>
             <NavLink to="/my-trips">My trips</NavLink>
           </li>
-          <li>
-        
-            { <NavLink to="/community">Community</NavLink> }
-          </li>
+          <li>{<NavLink to="/community">Community</NavLink>}</li>
           <li>
             <NavLink to="/about">Meet the team</NavLink>
           </li>

@@ -18,24 +18,21 @@ import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/notFound";
 import Dashboardpage from "./pages/DashboardPage";
 
-
 function App() {
   const [travels, setTravels] = useState([]);
-    async function getData () {
-        try{
-        const response = await supabase
-        .from('travels')
-        .select()
-        console.log("response ",response.data)
-        setTravels(response.data); 
-        } catch (error) {
-            console.log("Error from getting API: ", error);
-        }
-        };
-    
-        useEffect(()=> {
-            getData();
-        }, []);
+  async function getData() {
+    try {
+      const response = await supabase.from("travels").select();
+      console.log("response ", response.data);
+      setTravels(response.data);
+    } catch (error) {
+      console.log("Error from getting API: ", error);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div>
@@ -43,11 +40,10 @@ function App() {
 
       <section>
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Dashboardpage travels={travels} />} />
           <Route path="/my-trips" element={<MyTravelsPage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/" element={<Dashboardpage travels={travels}/>} />
-          <Route path="/community"  element={<TravelsCommunity />} />
+          <Route path="/community" element={<TravelsCommunity />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </section>
