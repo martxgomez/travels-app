@@ -1,7 +1,9 @@
 import "./Navbar.css";
 
+
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import logo  from "../assets/profile-image.jpeg";
 
 function Navbar() {
   return (
@@ -25,9 +27,22 @@ function Navbar() {
       </section>
 
       <section className="user-profile">
-        { <NavLink to="/user"></NavLink> }
+        <Link to="/userpage">
+          <img className="user-profile"
+            src={logo} 
+            alt="User Profile"
+          />
+        </Link>
       </section>
     </nav>
   );
 }
+
+
 export default Navbar;
+
+
+
+
+
+

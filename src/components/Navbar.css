@@ -34,7 +34,7 @@
 }
 
 .user-profile {
-  background-image: url("../assets/profile-image.jpeg");
+  /* background-image: url("../assets/profile-image.jpeg"); */
   background-size: cover;
   background-position: center;
   width: 70px;
@@ -42,6 +42,6 @@
   border-radius: 50%;
   border: none;
   position: absolute;
-
   right: 50px;
 }
+

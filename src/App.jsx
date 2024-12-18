@@ -17,6 +17,7 @@ import MyTravelsPage from "./pages/MyTravelsPage";
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFound";
 import Dashboardpage from "./pages/DashboardPage";
+import UserPage from "./pages/UserPage.jsx";
 
 function App() {
   const [travels, setTravels] = useState([]);
@@ -45,6 +46,7 @@ function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/community" element={<TravelsCommunity />} />
           <Route path="*" element={<NotFoundPage />} />
+          <Route path="/userpage" element={<UserPage/>} />
         </Routes>
       </section>
       <Footer />

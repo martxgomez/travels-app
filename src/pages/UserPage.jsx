@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./UserPage.css"
 
 function UserPage() {
   // Estados para los datos del formulario
