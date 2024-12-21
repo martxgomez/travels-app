@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./DashboardPage.css"
 import TravelList from "../components/travels/TravelList"
 
-function Dashboardpage ({travels}) {
+function Dashboardpage ({travels, favorites, addFavorite}) {
 
     const [search, setSearch] = useState("");
 
@@ -21,7 +21,7 @@ function Dashboardpage ({travels}) {
                     value={search}
                     onChange={handleSearch}
                     />
-                <TravelList travels={filteredTravels} />
+                <TravelList travels={filteredTravels} favorites={favorites} addFavorite={addFavorite}/>
             </div>
         );
      }
