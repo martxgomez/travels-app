@@ -11,7 +11,7 @@ import supabase from "./supabase/config.js";
 import Navbar from "./components/Navbar";
 import TravelsCommunity from "./pages/TravelsCommunity";
 import Footer from "./components/footer";
-import MyFavList from "./components/travels/MyFavList.jsx";
+// import MyFavList from "./components/travels/MyFavList.jsx";
 
 //routes
 import MyTravelsPage from "./pages/MyTravelsPage";
@@ -93,8 +93,8 @@ function App() {
       <section>
         <Routes>
           <Route path="/" element={<Dashboardpage travels={travels} favorites={favorites} addFavorite={addFavorite}/>} />
-          <Route path="/my-trips" element={<MyTravelsPage travels={travels} setTravels={setTravels} />} />
-          <Route path="/my-favs" element={<MyFavList travels={travels} favorites={favorites} addFavorite={addFavorite} />} />
+          <Route path="/my-trips" element={<MyTravelsPage travels={travels} setTravels={setTravels} favorites={favorites} addFavorite={addFavorite}/>} />
+          {/* <Route path="/my-favs" element={<MyFavList travels={travels}  />} /> */}
           <Route path="/about" element={<AboutPage />} />
           <Route path="/community" element={<TravelsCommunity />} />
           <Route path="*" element={<NotFoundPage />} />
