@@ -50,7 +50,6 @@ function App() {
       .eq("username", "testing_user")
       setFavorites(favorites.filter(favorite => favorite !==id));
 
-
       if (error) throw error;
       
     } else {
