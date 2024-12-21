@@ -22,6 +22,7 @@ import NotFoundPage from "./pages/NotFound";
 import Dashboardpage from "./pages/DashboardPage";
 import UserPage from "./pages/UserPage.jsx";
 import AddTripForm from "./pages/AddTripForm.jsx"
+import DetailsPage from "./pages/DetailsPage.jsx";
 
 function App() {
   const [travels, setTravels] = useState([]);
@@ -97,6 +98,10 @@ function App() {
                 addFavorite={addFavorite}
               />
             }
+          />
+           <Route
+            path="/travels/:travelId"
+            element={<DetailsPage/>}
           />
           <Route
             path="/my-trips"
