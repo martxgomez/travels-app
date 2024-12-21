@@ -1,7 +1,7 @@
 import TravelCard from "./TravelCard";
 
 function MyFavList ({travels, favorites, addFavorite}) {
-    const favoriteTravels = travels.filter((travel) => favorites.includes(travels.id));
+    const favoriteTravels = travels.filter((travel) => favorites.includes(travel.id));
 
     return (
         <div>

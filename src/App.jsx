@@ -36,16 +36,55 @@ function App() {
 
   useEffect(() => {
     getData();
+    getFavorites();
   }, []);
 
   //Function to handle favorites
-  const addFavorite = (id) => {
+  const addFavorite = async (id) => {
+    try{ 
     if (favorites.includes(id)) {
+      const {error} =await supabase
+      .from("favs")
+      .delete()
+      .eq("travels_id", id)
+      .eq("username", "testing_user")
+    
+      if (error) throw error;
+
       setFavorites(favorites.filter(favorite => favorite !==id));
     } else {
+      const {error}=await supabase
+      .from("favs")
+      .insert([
+        {
+          travels_id: id, 
+          username:"temporary_user",
+        }
+      ]);
+      if (error) throw error;
       setFavorites([...favorites, id])
     }
-  };
+    console.log("Current favorites: ", favorites);
+  } catch (error) {
+    console.log("Error adding/removing favorite: ", error)
+  }
+};
+
+  //Function to fetch the favorite trips
+  async function getFavorites() {
+    try {
+      const {data, error} = await supabase
+      .from ("favs")
+      .select("travels_id");
+
+      if (error) throw error;
+
+      const favoriteIds = data.map((fav) => fav.travels_id);
+      setFavorites(favoriteIds);
+    } catch (error) {
+      console.log("Error fetching favorite trips: ", error);
+    }
+  }
 
   return (
     <div>
