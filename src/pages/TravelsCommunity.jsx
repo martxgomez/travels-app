@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import supabase from "../supabase/config";
+import supabase from "../supabase/config.js";
 import "./TravelsCommunity.css";
+import { useParams } from "react-router-dom";
 
 const TravelsCommunity = () => {
+    const { id } = useParams();
     const [communities, setCommunities] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);

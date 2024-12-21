@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { supabase } from "../supabase/config";
+import { supabase } from "../supabase/config.js";
 import "./DetailsPage.css";
 
 function DetailsPage() {
@@ -38,7 +38,7 @@ function DetailsPage() {
             <h2>Details for {travel.destination}</h2>
             <img src={travel.image} alt={travel.destination} className="travel-image" />
             <p><strong>Description:</strong> {travel.description}</p>
-            <p><strong>Price:</strong> ${travel.price}</p>
+            <p><strong>Price:</strong> €{travel.price}</p>
             <p><strong>Start Date:</strong> {travel.start_date}</p>
             <p><strong>End Date:</strong> {travel.end_date}</p>
         </div>
