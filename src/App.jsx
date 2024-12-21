@@ -22,6 +22,7 @@ import NotFoundPage from "./pages/NotFound";
 import Dashboardpage from "./pages/DashboardPage";
 import UserPage from "./pages/UserPage.jsx";
 import AddTripForm from "./pages/AddTripForm.jsx"
+import DetailsPage from "./pages/DetailsPage.jsx";
 
 function App() {
   const [travels, setTravels] = useState([]);
@@ -98,6 +99,10 @@ function App() {
               />
             }
           />
+           <Route
+            path="/travels/:travelId"
+            element={<DetailsPage/>}
+          />
           <Route
             path="/my-trips"
             element={
@@ -108,6 +113,10 @@ function App() {
                 addFavorite={addFavorite}
               />
             }
+          />
+            <Route
+            path="/my-trips/:travelId"
+            element={<DetailsPage/>}
           />
           <Route path="/add-trip" element={<AddTripForm />} />
           <Route path="/about" element={<AboutPage />} />
