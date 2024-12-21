@@ -1,76 +1,48 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import supabase from "../supabase/config";
-// import { useParams } from "react-router-dom";
- 
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { supabase } from "../supabase/config";
+import "./DetailsPage.css";
 
+function DetailsPage() {
+    const { id } = useParams(); 
+    const [travel, setTravel] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-const DetailsPage = () => {
-
-const [trip, setTrip] = useState([]);
-const [error, setError] = useState(null);
-const [loading, setLoading] = useState(true);
-
-
-
-useEffect(() => {
-    const fetchTravels = async () => {
-
-        try {
+    useEffect(() => {
+        const fetchTravel = async () => {
+            setLoading(true);
             const { data, error } = await supabase
-            .from('travels')
-            .select('*')
-            // .eq('id', )
+                .from("travels")
+                .select("*")
+                .eq("id", id)
+                .single();
 
-        if (error) throw error;
+            if (error) {
+                console.error("Error fetching travel:", error.message);
+                setError("Travel not found!");
+            } else {
+                setTravel(data);
+            }
+            setLoading(false);
+        };
 
-        setTrip(data);
-        console.log( "data from api", data);
+        fetchTravel();
+    }, [id]);
 
-        } catch (err){
-            setError(err.message);
-        } finally {setLoading(false);
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>{error}</p>;
 
-        }
-    };
-
-    fetchTravels();
-}, []);
-
-
-if (loading) return <p className="details-loading">Cargando...</p>;
-if (error) return <p className="details-error">Error: {error}</p>;
-
-
-return(
-
-
-
-
-
-
-)
-
-
-
+    return (
+        <div className="details-page">
+            <h2>Details for {travel.destination}</h2>
+            <img src={travel.image} alt={travel.destination} className="travel-image" />
+            <p><strong>Description:</strong> {travel.description}</p>
+            <p><strong>Price:</strong> ${travel.price}</p>
+            <p><strong>Start Date:</strong> {travel.start_date}</p>
+            <p><strong>End Date:</strong> {travel.end_date}</p>
+        </div>
+    );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export default DetailsPage
+export default DetailsPage;

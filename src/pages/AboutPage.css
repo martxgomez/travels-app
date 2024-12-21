@@ -1,7 +1,103 @@
-.facePicture {
+/* General styling for the about page */
+.aboutpage {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(145deg, #89d4cf, #6e45e2);
+  color: #fff;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Introduction section */
+.introduction {
+  text-align: center;
+  max-width: 800px;
+  margin-bottom: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+}
+
+.introduction h2 {
+  font-size: 2.8rem;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.introduction h4 {
+  font-size: 1.6rem;
+  color: #d4e4f7;
+  margin-bottom: 20px;
+}
+
+.introduction p {
+  font-size: 1.2rem;
+  color: #e3eaf9;
+}
+
+/* Coworkers container */
+.coworkers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual coworker card */
+.coworker {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  padding: 20px;
+  max-width: 300px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coworker:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Title section inside coworker card */
+.coworkerTitle {
+  margin-bottom: 20px;
+}
+
+.coworkerTitle img {
   width: 100px;
   height: 100px;
-  margin-left: 50px;
   border-radius: 50%;
-  border: 1px solid grey;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+}
+
+.coworkerTitle h2 {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
+/* Paragraph inside coworker card */
+.coworker p {
+  font-size: 1rem;
+  color: #e0e7ff;
+  line-height: 1.6;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .coworkers {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .coworker {
+      max-width: 90%;
+  }
 }

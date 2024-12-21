@@ -1,81 +1,88 @@
-
+/* Estilo general para la página */
 .travels-community-container {
-    padding: 30px;
-    max-width: 900px;
-    margin: 0 auto;
-    font-family: 'Arial', sans-serif;
-    background-image: url('../assets/pexels-quang-nguyen-vinh-222549-2166711.jpg'); 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-
-
-.community-header {
-    font-size: 3rem;
-    color: #333;
-    border-color: white;
-    text-align: center;
-    margin-bottom: 30px;
-    font-weight: bold;
-}
-
-
-.community-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-
-.community-card {
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(145deg, #89d4cf, #6e45e2); /* Colores de AboutPage */
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
     padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-.community-card:hover {
+    box-sizing: border-box;
+  }
+  
+  /* Estilo para el título */
+  .community-header {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Contenedor para las tarjetas de la comunidad */
+  .community-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  /* Estilo de las tarjetas de la comunidad */
+  .community-card {
+    background: rgba(255, 255, 255, 0.2); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Efecto de difuminado */
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37); /* Sombra suave */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Efecto hover para las tarjetas */
+  .community-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-
-.community-card-header {
+  }
+  
+  /* Cabecera de la tarjeta con el nombre de usuario */
+  .community-card-header {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Estilo para los párrafos dentro de la tarjeta */
+  .community-card-body p {
+    font-size: 1rem;
+    color: #e0e7ff; /* Color más claro */
+    line-height: 1.6;
+  }
+  
+  /* Estilo para el texto de "Destination" y "Comment" */
+  .community-destination, .community-comment {
+    font-weight: normal;
+    color: #f3f4f7; /* Texto más suave */
+  }
+  
+  .community-user {
     font-size: 1.1rem;
     font-weight: bold;
-    color: #0073e6;
-    margin-bottom: 10px;
-}
-
-
-.community-destination {
-    font-size: 1rem;
-    color: #0b0101;
-    margin: 5px 0;
-}
-
-
-.community-comment {
-    font-size: 1rem;
-    color: #070202;
-    margin-top: 10px;
-}
-
-
-.community-loading {
-    text-align: center;
+    color: #fff;
+  }
+  
+  /* Mensaje de carga */
+  .community-loading {
+    color: #fff;
     font-size: 1.2rem;
-    color: #666;
-}
-
-
-.community-error {
     text-align: center;
-    font-size: 1.2rem;
-    color: red;
-    font-weight: bold;
-}
+    margin-top: 20px;
+  }
+  
+  /* Mensaje de error */
+  .co
+  
