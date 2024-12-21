@@ -4,24 +4,33 @@ import TravelList from "../components/travels/TravelList"
 
 function Dashboardpage ({travels, favorites, addFavorite}) {
 
-    // CREATION FILTER BY DESTINATION (SEARCH FIELD BY TYPING)
     // 1. STATE
     const [search, setSearch] = useState("");
+    const [maxDuration, setMaxDuration] = useState(""); 
+    const [showError, setShowError] = useState(false); //used in handleMaxDuration, when the user enters a number that is too big
 
+    // CREATION FILTER BY DESTINATION (SEARCH FIELD BY TYPING)
     // 2. HANDLE FUNCTION
         const handleSearch = (event) => {
             setSearch(event.target.value);
         };
 
-    
-
     // CREATION FILTER BY DURATION (DAYS)
-    // 1. STATE
-    const [maxDuration, setMaxDuration] = useState("");
-
     // 2. HANDLE FUNCTION
     const handleMaxDuration = (event) => {
-            setMaxDuration(event.target.value);
+            /* setMaxDuration(event.target.value);  - - - edited with the lines that follow, to integrate the limit of number to be entered */
+           
+            const value = Number(event.target.value); //converts strings (values are strings) in numbers
+
+            if (value > maxAvailableDuration || !Number.isInteger(Number(value))) { //with second condition, we check if the value entered (and converted in number) is an integer
+                setShowError(true);
+                setMaxDuration("");
+                setTimeout(() => setShowError(false), 3000);  //check the return to see what is displayed as error message
+            } else if (value <1 || !Number.isInteger(Number(value))) {
+                setMaxDuration("");
+            } else { 
+                setMaxDuration(value);
+            }
     }
 
     // 3. UPDATE RESULT
@@ -31,6 +40,9 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
 
         return matchesDestination && matchesDuration; 
 });
+
+    //CALCULATION OF HIGHEST DURATION WITHIN THE TRAVELS ARRAY (TO SET AS LIMIT FOR THE SEARCH FIELD BY DURATION)
+    const maxAvailableDuration = travels.length ? Math.max(...travels.map((travel) => travel.duration)) : 0;
         return (
            
             <div>
@@ -46,10 +58,18 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
                 {/* INPUT FOR THE SEARCH BY DURATION */}
                 <input
                     type="number"
-                    placeholder="Max days"
+                    placeholder={`Up to ${maxAvailableDuration} max days`}
                     value={maxDuration}
                     onChange={handleMaxDuration}
+                    min= "2"
+                    max={maxAvailableDuration}
                 />
+
+                {/* ERROR MESSAGE */}
+                {showError && (<p style = {{color:"red"}}>
+                    Duration must be at least 1 day, maximum allowed duration is {maxAvailableDuration} days.
+                </p>
+                )}
 
 
                 <TravelList travels={filteredTravels} favorites={favorites} addFavorite={addFavorite}/>
