@@ -1,11 +1,12 @@
 import TravelCard from "./TravelCard";
-function TravelList ({travels}) {
+function TravelList ({travels, favorites, addFavorite}) {
     return (
         <>
         
             <div>
             {travels.map((travel)=>{
-                return <TravelCard key={travel.id} {...travel}/>;
+                const isFavorite = favorites.includes(travel.id);
+                return <TravelCard key={travel.id} {...travel} addFavorite={addFavorite} isFavorite={isFavorite}/>;
             })}
          
             </div>

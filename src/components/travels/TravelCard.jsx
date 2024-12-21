@@ -1,4 +1,4 @@
-function TravelCard({id, destination, imageLink, duration, rating, price}) {
+function TravelCard({id, destination, imageLink, duration, rating, price, addFavorite, isFavorite}) {
     console.log("id, destination; ", id, destination);
     return (
 
@@ -8,6 +8,11 @@ function TravelCard({id, destination, imageLink, duration, rating, price}) {
             <p> Starting from {`${price}`}€</p>
             <p> {duration} days</p>
             <p>{rating} / 5 </p>
+
+            <button 
+              onClick={() => addFavorite(id)} className="fav-btn">
+                {isFavorite ? "❤️" : "🤍"}
+              </button>
             </div>
             );
 

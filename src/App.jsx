@@ -11,6 +11,7 @@ import supabase from "./supabase/config.js";
 import Navbar from "./components/Navbar";
 import TravelsCommunity from "./pages/TravelsCommunity";
 import Footer from "./components/footer";
+import MyFavList from "./components/travels/MyFavList.jsx";
 
 //routes
 import MyTravelsPage from "./pages/MyTravelsPage";
@@ -21,6 +22,8 @@ import UserPage from "./pages/UserPage.jsx";
 
 function App() {
   const [travels, setTravels] = useState([]);
+  const [favorites, setFavorites] = useState([]);  //state for the favorite travels
+
   async function getData() {
     try {
       const response = await supabase.from("travels").select();
@@ -33,7 +36,56 @@ function App() {
 
   useEffect(() => {
     getData();
+    getFavorites();
   }, []);
+
+  //Function to handle favorites
+  const addFavorite = async (id) => {
+    try{ 
+    if (favorites.includes(id)) {
+      const {error} =await supabase
+      .from("favs")
+      .delete()
+      .eq("travels_id", id)
+      .eq("username", "testing_user")
+      setFavorites(favorites.filter(favorite => favorite !==id));
+
+
+      if (error) throw error;
+      
+    } else {
+      const {error}=await supabase
+      .from("favs")
+      .insert(
+        {
+          travels_id: id, 
+          username:"testing_user",
+        }
+      );
+      if (error) throw error;
+      setFavorites([...favorites, id])
+    }
+    console.log("Current favorites: ", favorites);
+  } catch (error) {
+    console.log("Error adding/removing favorite: ", error)
+  }
+};
+
+  //Function to fetch the favorite trips
+  async function getFavorites() {
+    try {
+      const {data, error} = await supabase
+      .from ("favs")
+      .select("travels_id");
+
+      if (error) throw error;
+
+      const favoriteIds = data.map((fav) => fav.travels_id);
+      setFavorites(favoriteIds);
+    } catch (error) {
+      console.log("Error fetching favorite trips: ", error);
+    }
+  }
 
   return (
     <div>
@@ -41,8 +93,9 @@ function App() {
 
       <section>
         <Routes>
-          <Route path="/" element={<Dashboardpage travels={travels} />} />
+          <Route path="/" element={<Dashboardpage travels={travels} favorites={favorites} addFavorite={addFavorite}/>} />
           <Route path="/my-trips" element={<MyTravelsPage travels={travels} setTravels={setTravels} />} />
+          <Route path="/my-favs" element={<MyFavList travels={travels} favorites={favorites} addFavorite={addFavorite} />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/community" element={<TravelsCommunity />} />
           <Route path="*" element={<NotFoundPage />} />
