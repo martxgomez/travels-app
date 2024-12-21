@@ -114,6 +114,10 @@ function App() {
               />
             }
           />
+            <Route
+            path="/my-trips/:travelId"
+            element={<DetailsPage/>}
+          />
           <Route path="/add-trip" element={<AddTripForm />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/community" element={<TravelsCommunity />} />
