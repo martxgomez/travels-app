@@ -25,6 +25,7 @@ function AddTripForm() {
     try {
       const { data, error } = await supabase.from("mytrips").insert([
         {
+      
           destination,
           price,
           imageLink,

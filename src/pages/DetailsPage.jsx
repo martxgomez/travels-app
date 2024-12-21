@@ -51,13 +51,33 @@ function DetailsPage() {
         <strong>Description:</strong> {travel.description}
       </p>
       <p>
-        <strong>Price:</strong> ${travel.price}
+        <strong>Price:</strong> €{travel.price}
       </p>
       <p>
-        <strong>Start Date:</strong> {travel.start_date}
+        <strong>Duration:</strong> {travel.duration}
       </p>
       <p>
-        <strong>End Date:</strong> {travel.end_date}
+        <strong>Activities:</strong></p>
+        {travel.activities.map((activity) => (
+          <div key={Math.random()}>
+            <ul>
+              <li>{activity}</li>
+            </ul>
+          </div>
+        ))}
+      
+      <p>
+        <strong>Places:</strong> 
+      </p>
+      {travel.places.map((place) => (
+          <div key={Math.random()}>
+            <ul>
+              <li>{place}</li>
+            </ul>
+          </div>
+        ))}
+      <p>
+        <strong>Notes:</strong> {travel.notes}
       </p>
 
       <Link to="/" className="back-btn">
