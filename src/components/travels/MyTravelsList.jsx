@@ -24,6 +24,7 @@ function TravelList() {
         if (myTripsError) throw myTripsError;
 
         setMyTrips(myTripsData);
+      
       } catch (err) {
         setError(err.message);
       } finally {
