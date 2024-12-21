@@ -48,19 +48,20 @@ function App() {
       .delete()
       .eq("travels_id", id)
       .eq("username", "testing_user")
-    
-      if (error) throw error;
-
       setFavorites(favorites.filter(favorite => favorite !==id));
+
+
+      if (error) throw error;
+      
     } else {
       const {error}=await supabase
       .from("favs")
-      .insert([
+      .insert(
         {
           travels_id: id, 
-          username:"temporary_user",
+          username:"testing_user",
         }
-      ]);
+      );
       if (error) throw error;
       setFavorites([...favorites, id])
     }
