@@ -1,0 +1,19 @@
+
+  li::marker {
+    display: none; /
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .tag {
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 20px;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }

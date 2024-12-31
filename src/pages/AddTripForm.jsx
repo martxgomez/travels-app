@@ -7,14 +7,18 @@ import { useNavigate } from "react-router-dom";
 //data
 import supabase from "../supabase/config.js"
 
+//components
+import ActivitiesInput from "../components/ActivitiesInput.jsx";
+import PlacesInput from "../components/PlacesInput.jsx";
+
 function AddTripForm() {
   const [destination, setDestination] = useState("");
   const [price, setPrice] = useState("");
   const [imageLink, setImageLink] = useState("");
   const [duration, setDuration] = useState("");
   const [rating, setRating] = useState("");
-  const [activities, setActivities] = useState("");
-  const [places, setPlaces] = useState("");
+  const [activities, setActivities] = useState([]);
+  const [places, setPlaces] = useState([]);
   const [notes, setNotes] = useState("");
 
   const navigate = useNavigate();
@@ -81,16 +85,16 @@ function AddTripForm() {
         value={rating}
         onChange={(e) => setRating(e.target.value)}
       />
-      <textarea
-        placeholder="Activities"
-        value={activities}
-        onChange={(e) => setActivities(e.target.value)}
-      ></textarea>
-      <textarea
-        placeholder="Places"
-        value={places}
-        onChange={(e) => setPlaces(e.target.value)}
-      ></textarea>
+      <ActivitiesInput
+						activities={activities}
+						setActivities={setActivities}
+					/>
+    
+    <PlacesInput
+						places={places}
+						setPlaces={setPlaces}
+					/>
+    
       <textarea
         placeholder="Notes"
         value={notes}

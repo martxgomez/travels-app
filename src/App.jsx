@@ -8,12 +8,10 @@ import supabase from "./supabase/config.js";
 import { Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-
 //components
 import Navbar from "./components/Navbar";
 import TravelsCommunity from "./pages/TravelsCommunity";
 import Footer from "./components/footer";
-
 
 //routes
 import MyTravelsPage from "./pages/MyTravelsPage";
@@ -21,8 +19,9 @@ import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFound";
 import Dashboardpage from "./pages/DashboardPage";
 import UserPage from "./pages/UserPage.jsx";
-import AddTripForm from "./pages/AddTripForm.jsx"
+import AddTripForm from "./pages/AddTripForm.jsx";
 import DetailsPage from "./pages/DetailsPage.jsx";
+import MyTravelsDetailsPage from "./pages/MyTravelsDetailsPage.jsx";
 
 function App() {
   const [travels, setTravels] = useState([]);
@@ -99,10 +98,7 @@ function App() {
               />
             }
           />
-           <Route
-            path="/travels/:travelId"
-            element={<DetailsPage/>}
-          />
+          <Route path="/travels/:travelId" element={<DetailsPage />} />
           <Route
             path="/my-trips"
             element={
@@ -114,9 +110,9 @@ function App() {
               />
             }
           />
-            <Route
+          <Route
             path="/my-trips/:travelId"
-            element={<DetailsPage/>}
+            element={<MyTravelsDetailsPage />}
           />
           <Route path="/add-trip" element={<AddTripForm />} />
           <Route path="/about" element={<AboutPage />} />

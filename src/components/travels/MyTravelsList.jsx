@@ -1,5 +1,5 @@
 //components
-import TravelCard from "./TravelCard";
+import MyTravelCard from "./MyTravelCard.JSX";
 
 //Hooks
 import { useEffect } from "react";
@@ -8,7 +8,7 @@ import { useState } from "react";
 //Data
 import supabase from "../../supabase/config";
 
-function TravelList() {
+function MyTravelList() {
   const [myTrips, setMyTrips] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -48,7 +48,7 @@ function TravelList() {
       <>
         <div>
           {myTrips.map((myTrip) => {
-            return <TravelCard key={myTrip.id} {...myTrip} />;
+            return <MyTravelCard key={myTrip.id} {...myTrip} />;
           })}
         </div>
       </>
@@ -56,4 +56,4 @@ function TravelList() {
   }
 }
 
-export default TravelList;
+export default MyTravelList;
