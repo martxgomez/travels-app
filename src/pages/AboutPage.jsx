@@ -8,8 +8,8 @@ function AboutPage() {
   return (
     <div className="aboutpage">
       <section className="introduction">
-        <h2> More about us</h2>
-        <h4>Welcome to our Recipe App!</h4>
+        <h2> About us</h2>
+        
         <p className="description">
           {" "}
           Hover Horizons is a website designed for travel enthusiasts. Here, you
