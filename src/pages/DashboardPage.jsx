@@ -63,6 +63,7 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
                     onChange={handleMaxDuration}
                     min= "2"
                     max={maxAvailableDuration}
+                    className="duration-input" // the field adapts to the potential values (days up to 2 caracters) and therefore the placeholder text is not entirely displayed. In the CSS I will edit this class to make it wider
                 />
 
                 {/* ERROR MESSAGE */}
