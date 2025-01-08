@@ -9,6 +9,8 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
     const [maxDuration, setMaxDuration] = useState(""); 
     const [showError, setShowError] = useState(false); //used in handleMaxDuration, when the user enters a number that is too big
 
+    const [maxPrice, setMaxPrice] = useState("");
+
     // CREATION FILTER BY DESTINATION (SEARCH FIELD BY TYPING)
     // 2. HANDLE FUNCTION
         const handleSearch = (event) => {
@@ -25,7 +27,7 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
             if (value > maxAvailableDuration || !Number.isInteger(Number(value))) { //with second condition, we check if the value entered (and converted in number) is an integer
                 setShowError(true);
                 setMaxDuration("");
-                setTimeout(() => setShowError(false), 3000);  //check the return to see what is displayed as error message
+                setTimeout(() => setShowError(false), 4000);  //check the return to see what is displayed as error message
             } else if (value <1 || !Number.isInteger(Number(value))) {
                 setMaxDuration("");
             } else { 
@@ -33,16 +35,35 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
             }
     }
 
+    // CREATION FILTER BY PRICE
+    // 2. HANDLE FUNCTION   
+    const handleMaxPrice = (event) => {
+
+        const value = Number(event.target.value); 
+
+        if (value < 0 || !Number.isInteger(Number(value))) {
+            setShowError(true);
+            setMaxPrice("");
+            setTimeout(()=> setShowError(false), 4000);
+        } else {
+            setMaxPrice(value);
+        }
+    }
+
     // 3. UPDATE RESULT
     const filteredTravels = travels.filter((travel)=> {
         const matchesDestination = travel.destination.toLowerCase().includes(search.toLowerCase()); //first filter - destinations that match what we type in the search bar
         const matchesDuration = maxDuration ? travel.duration <= maxDuration : true; // second filter - travels that match the entered duration (or less), when we have a duration (value entered)
 
-        return matchesDestination && matchesDuration; 
+        const matchesPrice = maxPrice ? travel.price <= maxPrice : true; 
+        return matchesDestination && matchesDuration && matchesPrice; 
 });
 
     //CALCULATION OF HIGHEST DURATION WITHIN THE TRAVELS ARRAY (TO SET AS LIMIT FOR THE SEARCH FIELD BY DURATION)
     const maxAvailableDuration = travels.length ? Math.max(...travels.map((travel) => travel.duration)) : 0;
+
+    //CALCULATION OF HIGHEST PRICE WITHIN THE TRAVELS ARRAY (TO SET AS LIMIT FOR THE SEARCH FIELD BY PRICE)
+    const maxAvailablePrice = travels.length ? Math.max(...travels.map((travel)=> travel.price)) : 0;
         return (
            
             <div>
@@ -66,9 +87,26 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
                     className="duration-input" // the field adapts to the potential values (days up to 2 caracters) and therefore the placeholder text is not entirely displayed. In the CSS I will edit this class to make it wider
                 />
 
+                {/* INPUT FOR THE SEARCH BY PRICE */}
+                <input 
+                    type="number"
+                    placeholder={`Up to ${maxAvailablePrice} max price (€)`}
+                    value = {maxPrice}
+                    onChange = {handleMaxPrice}
+                    min ="0"
+                    max = {maxAvailablePrice}
+                    className="price-input"
+
+                    />
+
                 {/* ERROR MESSAGE */}
                 {showError && (<p style = {{color:"red"}}>
                     Duration must be at least 1 day, maximum allowed duration is {maxAvailableDuration} days.
+                </p>
+                )}
+
+                {showError && (<p style = {{color:"red"}}>
+                    Price must be a positive number, maximum allowed price is {maxAvailablePrice} €.
                 </p>
                 )}
 
