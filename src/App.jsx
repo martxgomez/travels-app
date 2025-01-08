@@ -22,6 +22,7 @@ import UserPage from "./pages/UserPage.jsx";
 import AddTripForm from "./pages/AddTripForm.jsx";
 import DetailsPage from "./pages/DetailsPage.jsx";
 import MyTravelsDetailsPage from "./pages/MyTravelsDetailsPage.jsx";
+import UpdateForm from "./pages/UpdateForm.jsx";
 
 function App() {
   const [travels, setTravels] = useState([]);
@@ -48,7 +49,6 @@ function App() {
       if (favorites.includes(id)) {
         const { error } = await supabase
           .from("favs")
-          .delete()
           .eq("travels_id", id)
           .eq("username", "testing_user");
         setFavorites(favorites.filter((favorite) => favorite !== id));
@@ -82,6 +82,18 @@ function App() {
     }
   }
 
+  // Function to delete a created travel
+  const deleteTravel = async (id) => {
+    try {
+      const { error } = await supabase.from("mytrips").delete().eq("id", id);
+      if (error) throw error;
+
+      setTravels(travels.filter((travel) => travel.id !== id));
+    } catch (error) {
+      console.error("Error deleting travel: ", error);
+    }
+  };
+
   return (
     <div>
       <Navbar />
@@ -112,8 +124,9 @@ function App() {
           />
           <Route
             path="/my-trips/:travelId"
-            element={<MyTravelsDetailsPage />}
+            element={<MyTravelsDetailsPage deleteTravel={deleteTravel} />}
           />
+          <Route path="/edit-travel/:travelId" element={<UpdateForm />} />
           <Route path="/add-trip" element={<AddTripForm />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/community" element={<TravelsCommunity />} />

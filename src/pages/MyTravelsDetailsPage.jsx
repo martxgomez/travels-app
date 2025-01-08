@@ -1,7 +1,6 @@
 //hooks
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 //data
 import supabase from "../supabase/config.js";
@@ -9,11 +8,13 @@ import supabase from "../supabase/config.js";
 //css
 // import "./DetailsPage.css";
 
-function MyTravelsDetailsPage() {
+function MyTravelsDetailsPage({ deleteTravel }) {
   const { travelId } = useParams();
   const [travel, setTravel] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchTravel = async () => {
@@ -36,11 +37,20 @@ function MyTravelsDetailsPage() {
     fetchTravel();
   }, [travelId]);
 
+  const handleDelete = async () => {
+    await deleteTravel(travelId);
+    navigate("/my-trips");
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;
 
   return (
     <div className="details-page">
+      <button onClick={handleDelete} className="btn-delete">
+        x
+      </button>
+      <button onClick={() => navigate(`/edit-travel/${travelId}`)}>Edit</button>
       <h2>Details for {travel.destination}</h2>
       <img
         src={travel.imageLink}
@@ -57,25 +67,26 @@ function MyTravelsDetailsPage() {
         <strong>Duration:</strong> {travel.duration}
       </p>
       <p>
-        <strong>Activities:</strong></p>
-        {travel.activities.map((activity) => (
-          <div key={Math.random()}>
-            <ul>
-              <li>{activity}</li>
-            </ul>
-          </div>
-        ))}
-      
+        <strong>Activities:</strong>
+      </p>
+      {travel.activities.map((activity) => (
+        <div key={Math.random()}>
+          <ul>
+            <li>{activity}</li>
+          </ul>
+        </div>
+      ))}
+
       <p>
-        <strong>Places:</strong> 
+        <strong>Places:</strong>
       </p>
       {travel.places.map((place) => (
-          <div key={Math.random()}>
-            <ul>
-              <li>{place}</li>
-            </ul>
-          </div>
-        ))}
+        <div key={Math.random()}>
+          <ul>
+            <li>{place}</li>
+          </ul>
+        </div>
+      ))}
       <p>
         <strong>Notes:</strong> {travel.notes}
       </p>
