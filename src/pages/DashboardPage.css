@@ -2,7 +2,7 @@
 .dashboard-page {
   padding: 20px;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-image: #f4f4f4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,7 +51,8 @@ input:focus {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
-  max-width: 220px;
+  max-width: 500px;
+  width: 400px;
   overflow: hidden;
   cursor: pointer;
 }
