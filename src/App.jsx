@@ -52,7 +52,6 @@ function App() {
           .eq("travels_id", id)
           .eq("username", "testing_user");
         setFavorites(favorites.filter((favorite) => favorite !== id));
-
         if (error) throw error;
       } else {
         const { error } = await supabase.from("favs").insert({
