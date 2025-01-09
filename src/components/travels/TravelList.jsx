@@ -3,7 +3,7 @@ function TravelList ({travels, favorites, addFavorite}) {
     return (
         <>
         
-            <div>
+            <div className="cards-container">
             {travels.map((travel)=>{
                 const isFavorite = favorites.includes(travel.id);
                 return <TravelCard key={travel.id} {...travel} addFavorite={addFavorite} isFavorite={isFavorite}/>;
