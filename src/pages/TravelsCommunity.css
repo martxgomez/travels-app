@@ -1,87 +1,80 @@
-/* Estilo general para la página */
+/* Fondo general */
 .travels-community-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(145deg, #89d4cf, #6e45e2); 
-    font-family: 'Roboto', sans-serif;
-    color: #fff;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  
-  .community-header {
-    font-size: 2rem;
-    color: #fff;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  
-  .community-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 20px;
-  }
-  
-  
-  .community-card {
-    background: rgba(255, 255, 255, 0.2); 
-    backdrop-filter: blur(10px); 
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37); 
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    transition: transform 0.3s ease;
-  }
-  
-  
-  .community-card:hover {
-    transform: translateY(-10px);
-  }
-  
-  
-  .community-card-header {
-    font-size: 1.2rem;
-    color: #fff;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-  }
-  
-  
-  .community-card-body p {
-    font-size: 1rem;
-    color: #e0e7ff; 
-    line-height: 1.6;
-  }
-  
-  
-  .community-destination, .community-comment {
-    font-weight: normal;
-    color: #f3f4f7; 
-  }
-  
-  .community-user {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #fff;
-  }
-  
-  
-  .community-loading {
-    color: #fff;
-    font-size: 1.2rem;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
- 
-  
+  background-image: url('../assets/gathering-home.jpg'); /* Asegúrate de que la ruta sea correcta */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 20px;
+  min-height: 100vh;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* Encabezado */
+.community-header {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Contenedor de tarjetas */
+.community-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Tarjetas */
+.community-card {
+  background: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.community-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Encabezado de la tarjeta */
+.community-card-header {
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #555;
+  text-transform: capitalize;
+}
+
+/* Cuerpo de la tarjeta */
+.community-card-body {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+/* Información específica */
+.community-destination {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.community-comment {
+  font-style: italic;
+  color: #666;
+}
+
+/* Estilos de carga y error */
+.community-loading,
+.community-error {
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: 20px;
+  font-weight: bold;
+}
