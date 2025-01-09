@@ -6,7 +6,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import supabase from "../supabase/config.js";
 
 //css
-import "./MyTravelsPage.css"
+import "./MyTravelsDetailsPage.css"
 
 function MyTravelsDetailsPage({ deleteTravel }) {
   const { travelId } = useParams();
