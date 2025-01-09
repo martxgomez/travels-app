@@ -66,7 +66,7 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
     const maxAvailablePrice = travels.length ? Math.max(...travels.map((travel)=> travel.price)) : 0;
         return (
            
-            <div>
+            <div className="dashboard-container">
                 <h2>Travels List</h2>
                 {/* INPUT FOR THE SEARCH OF DESTINATION */}
                 <input
@@ -110,8 +110,9 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
                 </p>
                 )}
 
-
+<div className="travel-list-container">
                 <TravelList travels={filteredTravels} favorites={favorites} addFavorite={addFavorite}/>
+            </div>
             </div>
         );
      }

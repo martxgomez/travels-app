@@ -6,13 +6,14 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import supabase from "../supabase/config.js";
 
 //css
-// import "./DetailsPage.css";
+import "./MyTravelsDetailsPage.css";
 
 function MyTravelsDetailsPage({ deleteTravel }) {
   const { travelId } = useParams();
   const [travel, setTravel] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   const navigate = useNavigate();
 
@@ -47,9 +48,29 @@ function MyTravelsDetailsPage({ deleteTravel }) {
 
   return (
     <div className="details-page">
-      <button onClick={handleDelete} className="btn-delete">
+      <button onClick={() => setShowConfirmation(true)} className="btn-delete">
         x
       </button>
+
+      {/* pop-up window to double-check if the user wants to delete de travel */}
+      {showConfirmation && (
+        <div className="pop-up-container">
+          <div className="pop-up-content">
+            <h3>Are you sure you want to delete this travel?</h3>
+            <div className="pop-up-buttons">
+              <button
+                onClick={() => setShowConfirmation(false)}
+                className="btn-cancel"
+              >
+                NO
+              </button>
+              <button onClick={handleDelete} className="btn-confirm">
+                YES
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
       <button onClick={() => navigate(`/edit-travel/${travelId}`)}>Edit</button>
       <h2>Details for {travel.destination}</h2>
       <img
