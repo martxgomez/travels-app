@@ -4,7 +4,7 @@ function NotFoundPage(){
     return(
         <div className="NotFoundContainer">
         <h1 className="notFoundTitle">404</h1>
-        <p className="Oops">oops...page not found</p>
+        <p className="Oops">oops...Page not found !</p>
         <img className="errorPage"/>
         </div>
     )
