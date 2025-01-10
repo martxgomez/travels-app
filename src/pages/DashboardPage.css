@@ -1,3 +1,56 @@
+.imgCity{
+  width:200px;
+}
+
+.duration-input {
+  width: 150px;
+}
+
+.price-input {
+  width: 200px;
+}
+
+.filter-section {
+border: 1px solid grey;
+padding: 1rem;
+margin-bottom: 1.5rem;
+border-radius: 5px;
+background-color: rgb(238, 243, 235);
+width: 400px;
+margin: 0 auto;
+}
+
+.filter-section legend {
+font-weight: bold;
+padding: 0 0.5rem;
+margin-bottom: 0.75rem;
+}
+
+.filter-input {
+display:block;
+width: 250px;
+max-width: 100%;
+margin-bottom: 0.75rem;
+padding: 0.5rem;
+border: 1px solid rgb(170, 170, 170);
+border-radius: 4px;
+}
+
+/* we now create the CSS for the fields when they are selected (this is done by the pseudo class "focus") */
+.filter-input:focus {
+outline: none;
+border-color: #007BFF;
+box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.filter-label {
+font-weight: bold;
+margin-bottom: 0.25rem;
+display:block;
+color: rgb(72, 90, 79);
+}
+
+
 /* Contenedor principal de la página */
 .dashboard-page {
   padding: 20px;
@@ -154,54 +207,4 @@ input[type="number"]:focus {
   input {
     max-width: 100%;
   }
-.imgCity{
-    width:200px;
-}
-
-.duration-input {
-    width: 150px;
-}
-
-.price-input {
-    width: 200px;
-}
-
-.filter-section {
-  border: 1px solid grey;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 5px;
-  background-color: rgb(238, 243, 235);
-  width: 400px;
-  margin: 0 auto;
-}
-
-.filter-section legend {
-  font-weight: bold;
-  padding: 0 0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.filter-input {
-  display:block;
-  width: 250px;
-  max-width: 100%;
-  margin-bottom: 0.75rem;
-  padding: 0.5rem;
-  border: 1px solid rgb(170, 170, 170);
-  border-radius: 4px;
-}
-
-/* we now create the CSS for the fields when they are selected (this is done by the pseudo class "focus") */
-.filter-input:focus {
-  outline: none;
-  border-color: #007BFF;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.filter-label {
-  font-weight: bold;
-  margin-bottom: 0.25rem;
-  display:block;
-  color: rgb(72, 90, 79);
-}
+   }
