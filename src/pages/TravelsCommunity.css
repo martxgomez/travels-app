@@ -1,13 +1,14 @@
 /* Fondo general */
 .travels-community-container {
-  background-image: url('../assets/gathering-home.jpg'); /* Asegúrate de que la ruta sea correcta */
+  background-image: url('../assets/gathering-home.jpg'); 
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   padding: 20px;
   min-height: 100vh;
   color: #fff;
-  font-family: Arial, sans-serif;
+  
+ 
 }
 
 /* Encabezado */
@@ -28,7 +29,7 @@
 
 /* Tarjetas */
 .community-card {
-  background: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
+  background: rgba(255, 255, 255, 0.9); 
   color: #333;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

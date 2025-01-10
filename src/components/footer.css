@@ -12,7 +12,8 @@
 
 .rights-container {
   margin: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
   font-size: 0.7em;
   color: rgb(220, 220, 220);
   text-align: center;

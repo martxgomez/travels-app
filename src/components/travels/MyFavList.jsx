@@ -1,25 +1,38 @@
 import TravelCard from "./TravelCard";
+import Slider from "react-slick";
 
 function MyFavList ({travels, favorites, addFavorite}) {
     const favoriteTravels = travels.filter((travel) => favorites.includes(travel.id));
 
-    return (
-        <div>
-            {favoriteTravels.length > 0 ? (
-                favoriteTravels.map((travel) => {
-                    return (
-                        <TravelCard
-                        key={travel.id}
-                        {...travel}
-                        addFavorite={addFavorite}
-                        isFavorite = {true} />
-                    );
-                })
-            ) : (
-                <p>No favorite trip found 🧳❤️ </p>
-            )}
+    const settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 3, 
+        slidesToScroll: 1,
+        nextArrow: <button>❯</button>,
+        prevArrow: <button>❮</button>,
+      };
+
+      return (
+        <div className="my-fav-list">
+          {favoriteTravels.length > 0 ? (
+            <Slider {...settings}>
+              {favoriteTravels.map((travel) => (
+                <div key={travel.id}>
+                  <TravelCard
+                    key={travel.id}
+                    {...travel}
+                    addFavorite={addFavorite}
+                    isFavorite={true}
+                  />
+                </div>
+              ))}
+            </Slider>
+          ) : (
+            <p>No favorite trips found 🧳❤️</p>
+          )}
         </div>
-    )
+      );
 }
 
 export default MyFavList;
