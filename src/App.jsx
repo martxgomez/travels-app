@@ -49,6 +49,7 @@ function App() {
       if (favorites.includes(id)) {
         const { error } = await supabase
           .from("favs")
+          .delete()
           .eq("travels_id", id)
           .eq("username", "testing_user");
         setFavorites(favorites.filter((favorite) => favorite !== id));

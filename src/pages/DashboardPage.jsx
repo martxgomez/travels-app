@@ -7,7 +7,8 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
     // 1. STATE
     const [search, setSearch] = useState("");
     const [maxDuration, setMaxDuration] = useState(""); 
-    const [showError, setShowError] = useState(false); //used in handleMaxDuration, when the user enters a number that is too big
+    const [showDurationError, setShowDurationError] = useState(false); //used in handleMaxDuration, when the user enters a number that is too big
+    const [showPriceError, setShowPriceError] = useState(false);
 
     const [maxPrice, setMaxPrice] = useState("");
 
@@ -25,9 +26,9 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
             const value = Number(event.target.value); //converts strings (values are strings) in numbers
 
             if (value > maxAvailableDuration || !Number.isInteger(Number(value))) { //with second condition, we check if the value entered (and converted in number) is an integer
-                setShowError(true);
+                setShowDurationError(true);
                 setMaxDuration("");
-                setTimeout(() => setShowError(false), 4000);  //check the return to see what is displayed as error message
+                setTimeout(() => setShowDurationError(false), 4000);  //check the return to see what is displayed as error message
             } else if (value <1 || !Number.isInteger(Number(value))) {
                 setMaxDuration("");
             } else { 
@@ -42,9 +43,11 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
         const value = Number(event.target.value); 
 
         if (value < 0 || !Number.isInteger(Number(value))) {
-            setShowError(true);
+            setShowPriceError(true);
             setMaxPrice("");
-            setTimeout(()=> setShowError(false), 4000);
+            setTimeout(()=> setShowPriceError(false), 4000);
+        } else if (value <1 || !Number.isInteger(Number(value))) {
+            setMaxPrice("");
         } else {
             setMaxPrice(value);
         }
@@ -68,44 +71,55 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
            
             <div className="dashboard-container">
                 <h2>Travels List</h2>
+
+                <fieldset className="filter-section">
+                <legend>Filter by</legend>
                 {/* INPUT FOR THE SEARCH OF DESTINATION */}
+                <label htmlFor="search-destination" className="filter-label">Destination: </label>
                 <input
+                    id="search-destination"
                     type="text"
                     placeholder="Search by destination"
                     value={search}
                     onChange={handleSearch}
+                    className= "filter-input"
                     />
                 
                 {/* INPUT FOR THE SEARCH BY DURATION */}
+                <label htmlFor="search-duration" className="filter-label">Duration: </label>
                 <input
+                    id="search-duration"
                     type="number"
                     placeholder={`Up to ${maxAvailableDuration} max days`}
                     value={maxDuration}
                     onChange={handleMaxDuration}
-                    min= "2"
+                    min= "1"
                     max={maxAvailableDuration}
-                    className="duration-input" // the field adapts to the potential values (days up to 2 caracters) and therefore the placeholder text is not entirely displayed. In the CSS I will edit this class to make it wider
+                    className="duration-input filter-input" // the field adapts to the potential values (days up to 2 caracters) and therefore the placeholder text is not entirely displayed. In the CSS I will edit this class to make it wider
                 />
 
                 {/* INPUT FOR THE SEARCH BY PRICE */}
+                <label htmlFor="search-price" className="filter-label">Price: </label>
                 <input 
+                    id="search-price"
                     type="number"
                     placeholder={`Up to ${maxAvailablePrice} max price (€)`}
                     value = {maxPrice}
                     onChange = {handleMaxPrice}
-                    min ="0"
+                    min ="1"
                     max = {maxAvailablePrice}
-                    className="price-input"
+                    className="price-input filter-input"
 
                     />
+                </fieldset>
 
                 {/* ERROR MESSAGE */}
-                {showError && (<p style = {{color:"red"}}>
+                {showDurationError && (<p style = {{color:"red"}}>
                     Duration must be at least 1 day, maximum allowed duration is {maxAvailableDuration} days.
                 </p>
                 )}
 
-                {showError && (<p style = {{color:"red"}}>
+                {showPriceError && (<p style = {{color:"red"}}>
                     Price must be a positive number, maximum allowed price is {maxAvailablePrice} €.
                 </p>
                 )}
