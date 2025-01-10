@@ -98,7 +98,7 @@ function App() {
     <div>
       <Navbar />
 
-      <section>
+      <section >
         <Routes>
           <Route
             path="/"

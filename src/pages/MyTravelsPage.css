@@ -1,0 +1,50 @@
+.my-trips-container {
+  height: 100%;
+  background-color: #4755481c;
+}
+.title-container h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    padding-top: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.154);
+    
+  }
+
+.carousel {
+  width: 100%;
+}
+
+h3 {
+  width: 100%;
+  margin: 20px 50px;
+  font-size: 1.5em;
+}
+
+.create-trip-card {
+  width: 200px;
+  height: 100px;
+  border: 1px solid #475548;
+  border-radius: 15px;
+  background-color: #fff;
+  color: #475548;
+  text-align: center;
+  font-size: 3em;
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+  position: relative;
+  margin: 0 50px 20px 50px;
+  a {
+    color: #475548;
+    text-decoration: none;
+  }
+}
+
+.my-trips-list {
+  border: 0.01px solid rgba(0, 0, 0, 0);
+  /*  i don't know the reason why if border doesn't exist, a white background appears */
+  padding: 0 0 50px 0;
+}

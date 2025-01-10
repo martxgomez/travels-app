@@ -1,7 +1,10 @@
 
 .aboutpage {
-  font-family: 'Roboto', sans-serif;
-  background: url('../assets/mapa.png') no-repeat center center fixed; 
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-size: 1.2em;
+  background: url('../assets/mapa.png') no-repeat center center fixed; /* Imagen de fondo */
   background-size: cover; 
   color: #ffffff;
   padding: 20px;
