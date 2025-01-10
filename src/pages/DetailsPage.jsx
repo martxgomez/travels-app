@@ -41,48 +41,66 @@ function DetailsPage() {
 
   return (
     <div className="details-page">
-      <h2>Details for {travel.destination}</h2>
       <img
         src={travel.imageLink}
         alt={travel.destination}
         className="travel-image"
       />
-      <p>
-        <strong>Description:</strong> {travel.description}
-      </p>
-      <p>
-        <strong>Price:</strong> €{travel.price}
-      </p>
-      <p>
-        <strong>Duration:</strong> {travel.duration}
-      </p>
-      <p>
-        <strong>Activities:</strong></p>
-        {travel.activities.map((activity) => (
-          <div key={Math.random()}>
-            <ul>
-              <li>{activity}</li>
-            </ul>
-          </div>
-        ))}
-      
-      <p>
-        <strong>Places:</strong> 
-      </p>
-      {travel.places.map((place) => (
-          <div key={Math.random()}>
-            <ul>
-              <li>{place}</li>
-            </ul>
-          </div>
-        ))}
-      <p>
-        <strong>Notes:</strong> {travel.notes}
-      </p>
+      <section className="content-container">
+       <h2>{travel.destination}</h2>
+      <section className="details-container">
+       
 
-      <Link to="/" className="back-btn">
-        Back
-      </Link>
+        <section className="info-column1">
+          <article className="title">
+            <strong>Activities</strong>
+          </article>
+          <article className="info">
+            {travel.activities.map((activity) => (
+              <div key={Math.random()}>
+                <ul>
+                  <li>{activity}</li>
+                </ul>
+              </div>
+            ))}
+          </article>
+
+          <article className="title">
+            <strong>Places to visit</strong>
+          </article>
+          <article className="info">
+            {travel.places.map((place) => (
+              <div key={Math.random()}>
+                <ul>
+                  <li>{place}</li>
+                </ul>
+              </div>
+            ))}
+          </article>
+          <article className="title">
+            <strong>Notes</strong>
+          </article>
+          <article className="info">{travel.notes}</article>
+        </section>
+
+        <section className="info-column2">
+          <article className="title">
+            <strong>Duration</strong>
+          </article>
+          <article className="info">{travel.duration} Days</article>
+
+          <article className="title">
+            <strong>Price</strong>
+          </article>
+          <article className="info">{travel.price} €</article>
+          <Link to="/" className="back-btn">
+          Back
+        </Link>
+        </section>
+        </section>
+
+       
+      </section>
     </div>
   );
 }
