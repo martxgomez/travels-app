@@ -1,0 +1,68 @@
+/* DetailsPage.css */
+
+
+
+
+
+  .details-page {
+    background: #fff;
+    padding: 20px;
+    margin-left: 450px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 500px; 
+    height: auto; 
+    text-align: center;
+  }
+  
+  .details-page h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .travel-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .details-page p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.4;
+    margin: 5px 0;
+  }
+  
+  .details-page strong {
+    color: #333;
+  }
+  
+  .details-page ul {
+    list-style-type: none; /* Sin viñetas */
+    padding: 0;
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  .details-page li {
+    font-size: 14px;
+  }
+  
+  .back-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .back-btn:hover {
+    background-color: #0056b3;
+  }
+  
