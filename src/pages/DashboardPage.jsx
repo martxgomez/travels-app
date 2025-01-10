@@ -4,13 +4,18 @@ import TravelList from "../components/travels/TravelList"
 
 function Dashboardpage ({travels, favorites, addFavorite}) {
 
-    // 1. STATE
+// CREATION OF FILTER AND SORT
+    // 1.1 STATES FOR FILTER
     const [search, setSearch] = useState("");
     const [maxDuration, setMaxDuration] = useState(""); 
     const [showDurationError, setShowDurationError] = useState(false); //used in handleMaxDuration, when the user enters a number that is too big
     const [showPriceError, setShowPriceError] = useState(false);
 
     const [maxPrice, setMaxPrice] = useState("");
+
+    // 1.1 STATES FOR FILTER
+    const [sortOption, setSortOption] = useState("");
+
 
     // CREATION FILTER BY DESTINATION (SEARCH FIELD BY TYPING)
     // 2. HANDLE FUNCTION
@@ -53,24 +58,51 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
         }
     }
 
-    // 3. UPDATE RESULT
-    const filteredTravels = travels.filter((travel)=> {
+    // 3. UPDATE RESULT  =>  travels.filter().sort()
+    const filteredTravels = travels
+    .filter((travel)=> {
         const matchesDestination = travel.destination.toLowerCase().includes(search.toLowerCase()); //first filter - destinations that match what we type in the search bar
         const matchesDuration = maxDuration ? travel.duration <= maxDuration : true; // second filter - travels that match the entered duration (or less), when we have a duration (value entered)
 
         const matchesPrice = maxPrice ? travel.price <= maxPrice : true; 
         return matchesDestination && matchesDuration && matchesPrice; 
-});
+    })
+
+    .sort ((a, b) => {
+        if (sortOption === "asc") {
+            return a.price - b.price;
+        } else if (sortOption === "desc") {
+            return b.price - a.price;
+        } else if (sortOption ==="alphabetically-asc") {
+            return a.destination.localeCompare(b.destination);
+        } else if (sortOption ==="alphabetically-desc") {
+            return b.destination.localeCompare(a.destination);
+        } else if (sortOption === "duration-asc") {
+            return a.duration - b.duration;
+        } else if (sortOption === "duration-desc") {
+            return b.duration - a.duration;
+        } else if (sortOption ==="rating-asc") {
+            return a.rating - b.rating;
+        } else if (sortOption === "rating-desc") {
+            return b.rating - a.rating;
+        } 
+        return 0;
+    });
 
     //CALCULATION OF HIGHEST DURATION WITHIN THE TRAVELS ARRAY (TO SET AS LIMIT FOR THE SEARCH FIELD BY DURATION)
     const maxAvailableDuration = travels.length ? Math.max(...travels.map((travel) => travel.duration)) : 0;
 
     //CALCULATION OF HIGHEST PRICE WITHIN THE TRAVELS ARRAY (TO SET AS LIMIT FOR THE SEARCH FIELD BY PRICE)
     const maxAvailablePrice = travels.length ? Math.max(...travels.map((travel)=> travel.price)) : 0;
-        return (
+
+
+
+    return (
            
             <div className="dashboard-container">
                 <h2>Travels List</h2>
+
+            {/* FILTER SECTION */}
 
                 <fieldset className="filter-section">
                 <legend>Filter by</legend>
@@ -123,6 +155,67 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
                     Price must be a positive number, maximum allowed price is {maxAvailablePrice} €.
                 </p>
                 )}
+            
+            {/* SORT SECTION */}
+            <fieldset className="sort-section">
+                <legend>Sort by</legend>
+                {/* INPUT TO ORDER ALPHABETICALLY */}
+                <label htmlFor="sort-alphabetically" className="sort-label">Alphabetically: </label>
+                <select
+                    id="sort-alphabetically"
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                    className= "sort-input"
+                    > 
+
+                    <option value="">Select</option>
+                    <option value="alphabetically-asc">A to Z</option>
+                    <option value="alphabetically-desc">Z to A</option>
+                </select>
+
+                {/* INPUT TO ORDER BY DURATION */}
+                <label htmlFor="sort-duration" className="sort-label">Duration: </label>
+                <select
+                    id="sort-duration"
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                    className= "sort-input"
+                    > 
+
+                    <option value="">Select</option>
+                    <option value="duration-asc">Shortest to Longest</option>
+                    <option value="duration-desc">Longest to Shortest</option>
+                </select>
+
+                {/* INPUT TO ORDER BY PRICE */}
+                <label htmlFor="sort-price" className="sort-label">Price: </label>
+                <select
+                    id="sort-price"
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                    className= "sort-input"
+                    > 
+
+                    <option value="">Select</option>
+                    <option value="asc">Lowest to Highest</option>
+                    <option value="desc">Highest to Lowest</option>
+                </select>
+
+                {/* INPUT TO ORDER BY RATING */}
+                <label htmlFor="sort-rating" className="sort-label">Rating: </label>
+                <select
+                    id="sort-rating"
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                    className= "sort-input"
+                    > 
+
+                    <option value="">Select</option>
+                    <option value="rating-asc">Lowest to Highest</option>
+                    <option value="rating-desc">Highest to Lowest</option>
+                </select>
+            </fieldset>
+
 
 <div className="travel-list-container">
                 <TravelList travels={filteredTravels} favorites={favorites} addFavorite={addFavorite}/>
