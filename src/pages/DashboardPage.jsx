@@ -81,7 +81,11 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
             return a.duration - b.duration;
         } else if (sortOption === "duration-desc") {
             return b.duration - a.duration;
-        }
+        } else if (sortOption ==="rating-asc") {
+            return a.rating - b.rating;
+        } else if (sortOption === "rating-desc") {
+            return b.rating - a.rating;
+        } 
         return 0;
     });
 
@@ -179,10 +183,9 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
                     > 
 
                     <option value="">Select</option>
-                    <option value="duration-asc">Shorter to Longer</option>
-                    <option value="duration-desc">Longer to Shorter</option>
+                    <option value="duration-asc">Shortest to Longest</option>
+                    <option value="duration-desc">Longest to Shortest</option>
                 </select>
-
 
                 {/* INPUT TO ORDER BY PRICE */}
                 <label htmlFor="sort-price" className="sort-label">Price: </label>
@@ -194,10 +197,23 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
                     > 
 
                     <option value="">Select</option>
-                    <option value="asc">Low to High</option>
-                    <option value="desc">High to Low</option>
+                    <option value="asc">Lowest to Highest</option>
+                    <option value="desc">Highest to Lowest</option>
                 </select>
 
+                {/* INPUT TO ORDER BY RATING */}
+                <label htmlFor="sort-rating" className="sort-label">Rating: </label>
+                <select
+                    id="sort-rating"
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                    className= "sort-input"
+                    > 
+
+                    <option value="">Select</option>
+                    <option value="rating-asc">Lowest to Highest</option>
+                    <option value="rating-desc">Highest to Lowest</option>
+                </select>
             </fieldset>
 
 
