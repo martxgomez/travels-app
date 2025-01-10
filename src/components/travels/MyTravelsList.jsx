@@ -46,7 +46,7 @@ function MyTravelList() {
   } else {
     return (
       <>
-        <div>
+        <div className="carousel-item" >
           {myTrips.map((myTrip) => {
             return <MyTravelCard key={myTrip.id} {...myTrip} />;
           })}
