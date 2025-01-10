@@ -113,12 +113,12 @@ function UserPage() {
       </label>
 
       {/* Submit button */}
-      <button type="submit">Guardar datos</button>
+      <button type="submit">Save Data</button>
 
       {/* Show the entered data */}
       <div className="user-data">
         <h3>User Data:</h3>
-        <p><strong>Image:</strong> {image ? <img src={image} alt="Preview" style={{ width: "50px", height: "50px" }} /> : "No disponible"}</p>
+        <p><strong>Image:</strong> {image ? <img src={image} alt="Preview" style={{ width: "50px", height: "50px" }} /> : "Not available"}</p>
         <p><strong>Name of the user:</strong> {userName}</p>
         <p><strong>Complete name:</strong> {name}</p>
         <p><strong>Date of birth:</strong> {dateOfBirth}</p>
