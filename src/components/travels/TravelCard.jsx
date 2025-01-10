@@ -15,15 +15,18 @@ function TravelCard({
     <article className="travel-card">
       <Link to={`/travels/${id}`} className="card">
         <div key={id}>
-          <h2> {destination}</h2>
           <img
             src={imageLink}
             alt={`Picture of ${destination}`}
             className="imgCity"
           />
+          <div className="title-rating-container">
+            <h2>{destination}</h2>
+            <div className="rating">⭐ {rating}/5</div>
+          </div>
+
           <p> Starting from {`${price}`}€</p>
           <p> {duration} days</p>
-          <p>{rating} / 5 </p>
         </div>
       </Link>
       <button onClick={() => addFavorite(id)} className="fav-btn">

@@ -35,7 +35,9 @@
 .info-container {
   display: flex;
   gap: 120px;
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
   font-size: 1.2em;
   list-style: none;
   li {
@@ -85,6 +87,5 @@
 
 .navbar a.active {
   color: #475548;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
+  font-weight: 900;
 }
