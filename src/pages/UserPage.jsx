@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./UserPage.css"
 
 function UserPage() {
-  // Estados para los datos del formulario
+  // STATES FOR THE FORM DATA
   const [image, setImage] = useState("");
   const [userName, setUserName] = useState("");
   const [name, setName] = useState("");
@@ -12,7 +12,7 @@ function UserPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // Manejo del envío del formulario
+  // HANDLE FUNCTION FOR THE FORM SUMBMITION
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Datos guardados:", {
@@ -29,11 +29,11 @@ function UserPage() {
 
   return (
     <form className="user-form" onSubmit={handleSubmit}>
-      <h2>Formulario de Usuario</h2>
+      <h2>User form</h2>
 
       
       <label>
-        URL de imagen:
+        Image URL:
         <input
           type="text"
           value={image}
@@ -44,7 +44,7 @@ function UserPage() {
 
       
       <label>
-        Nombre de usuario:
+        Name of the User:
         <input
           type="text"
           value={userName}
@@ -54,7 +54,7 @@ function UserPage() {
 
       
       <label>
-        Nombre completo:
+        Complete name:
         <input
           type="text"
           value={name}
@@ -64,7 +64,7 @@ function UserPage() {
 
       
       <label>
-        Fecha de nacimiento:
+        Date of birth:
         <input
           type="date"
           value={dateOfBirth}
@@ -74,7 +74,7 @@ function UserPage() {
 
       
       <label>
-        Ciudad:
+        City:
         <input
           type="text"
           value={city}
@@ -84,7 +84,7 @@ function UserPage() {
 
       
       <label>
-        País:
+        Country:
         <input
           type="text"
           value={country}
@@ -104,7 +104,7 @@ function UserPage() {
 
       
       <label>
-        Contraseña:
+        Password:
         <input
           type="password"
           value={password}
@@ -112,18 +112,18 @@ function UserPage() {
         />
       </label>
 
-      {/* Botón para enviar */}
-      <button type="submit">Guardar datos</button>
+      {/* Submit button */}
+      <button type="submit">Save Data</button>
 
-      {/* Mostrando los datos ingresados */}
+      {/* Show the entered data */}
       <div className="user-data">
-        <h3>Datos del Usuario:</h3>
-        <p><strong>Imagen:</strong> {image ? <img src={image} alt="Preview" style={{ width: "50px", height: "50px" }} /> : "No disponible"}</p>
-        <p><strong>Nombre de usuario:</strong> {userName}</p>
-        <p><strong>Nombre completo:</strong> {name}</p>
-        <p><strong>Fecha de nacimiento:</strong> {dateOfBirth}</p>
-        <p><strong>Ciudad:</strong> {city}</p>
-        <p><strong>País:</strong> {country}</p>
+        <h3>User Data:</h3>
+        <p><strong>Image:</strong> {image ? <img src={image} alt="Preview" style={{ width: "50px", height: "50px" }} /> : "Not available"}</p>
+        <p><strong>Name of the user:</strong> {userName}</p>
+        <p><strong>Complete name:</strong> {name}</p>
+        <p><strong>Date of birth:</strong> {dateOfBirth}</p>
+        <p><strong>City:</strong> {city}</p>
+        <p><strong>Country:</strong> {country}</p>
         <p><strong>Email:</strong> {email}</p>
       </div>
     </form>

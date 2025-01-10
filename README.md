@@ -1,49 +1,49 @@
-# Hover Horizons 🌍
+# ROUTIFY - Hover Horizons 🌍
 
-**Hover Horizons** es una página web diseñada para los amantes de los viajes. Aquí podrás explorar destinos increíbles, gestionar tu lista personal de viajes, interactuar con una comunidad viajera, y personalizar tu perfil. Este proyecto fue desarrollado por Airam Santos, Andrea Bronzoni y Marta Gómez como parte de un proyecto de clase.
-
----
-
-## 📝 Descripción
-
-Hover Horizons ofrece una experiencia completa para explorar viajes y destinos, permitiendo a los usuarios:
-
-1. Ver un listado de viajes predeterminados con detalles interesantes.
-2. Guardar viajes en su listado personal para planificar sus próximas aventuras.
-3. Gestionar su listado personal (crear, editar y borrar viajes) sin afectar el listado general.
-4. Conectarse con otros viajeros a través de la **Traveler's Community**.
-5. Personalizar su experiencia mediante una página de configuración de perfil.
-6. Conocer a los creadores del proyecto en la página "Meet the team".
+**ROUTIFY** is a website designed for travel enthusiasts. Here, you can explore incredible destinations, manage your personal travel list, interact with a travel community, and customize your profile. This project was developed by Airam Santos, Andrea Bronzoni, and Marta Gómez as part of a class project.
 
 ---
 
-## 🚀 Características
+## 📝 Description
 
-- **Página principal:** Visualización de un listado general de viajes con información detallada.
-- **Gestión de viajes personales:** Agrega, edita y elimina viajes en tu lista personal.
-- **Traveler's Corner:** Conéctate con otros viajeros y comparte experiencias.
-- **Configuración de perfil:** Personaliza tu información personal.
-- **Página de Meet the team:** Aprende más sobre los creadores de este proyecto.
+ROUTIFY offers a complete experience for exploring trips and destinations, allowing users to:
+
+1. View a pre-defined list of trips with interesting details.
+2. Save trips to your personal list to plan their next adventures.
+3. Manage your personal list (create, edit, and delete trips) without affecting the general list.
+4. Connect with other travelers through the **Traveler's Community**.
+5. Personalize your experience via a profile settings page.
+6. Learn about the project creators on the "Meet the Team" page.
 
 ---
 
-## 📍 Rutas de la app
+## 🚀 Features
 
-| Ruta               | Descripción                                                |
+- **Homepage:** View a general list of trips with detailed information.
+- **Personal trip management:** Add, edit, and delete trips in your personal list.
+- **Traveler's Corner:** Connect with other travelers and share experiences.
+- **Profile settings:** Customize your personal information.
+- **Meet the Team page:** Learn more about the creators of this project.
+
+---
+
+## 📍 App routes
+
+| Route               | Description                                                |
 | ------------------ | ---------------------------------------------------------- |
-| /welcome           | Muestra todos los viajes disponibles (Página principal)    |
-| /travels/:id       | Muestra los detalles de un viaje en específico             |
-| /my-trips          | Muestra los viajes guardados por el usuario                |
-| /my-trips/:id      | Muestra los detalles de un viaje guardado por el usuario   |
-| /my-trips/new      | Formulario para agregar un nuevo viaje a la lista personal |
-| /my-trips/:id/edit | Formulario para editar un viaje en la lista personal       |
-| /community         | Muestra un foro de usuarios sobre experiencias de viajes   |
-| /profile           | Muestra y permite editar el perfil personal del usuario    |
-| /about             | Muestra información sobre los creadores de la página web   |
+| /welcome           | Displays all available trips (Homepage)    |
+| /travels/:id       | Shows details of a specific trip             |
+| /my-trips          | Displays trips saved by the user                |
+| /my-trips/:id      | Shows details of a saved trip   |
+| /my-trips/new      | Form to add a new trip to the personal list |
+| /my-trips/:id/edit | Form to edit a trip in the personal list       |
+| /community         | Displays a user forum about travel experiences   |
+| /profile           | Displays and allows editing of the user's profile    |
+| /about             | Displays information about the website creators   |
 
 ---
 
-## 🧑‍🤝‍🧑 Integrantes
+## 🧑‍🤝‍🧑 Contributors
 
 Airam Santos [LinkedIn/Airam Santos](https://www.linkedin.com/in/airam-santos-diaz-103b4a336/)
 <br>
@@ -53,7 +53,7 @@ Marta Gómez [LinkedIn/Marta Gómez](https://www.linkedin.com/in/martagomezmarti
 
 ---
 
-## 🛠️ Tecnologías
+## 🛠️ Technologies
 
 - **Frontend:**
 
@@ -68,47 +68,48 @@ Marta Gómez [LinkedIn/Marta Gómez](https://www.linkedin.com/in/martagomezmarti
 
 ---
 
-## 🙌 Contribuciones
+## 🙌 Contributions
 
-Si tienes ideas para mejorar este proyecto, ¡no dudes en enviar un pull request o abrir un issue!
+If you have ideas to improve this project, feel free to submit a pull request or open an issue!
 
 ---
 
-## 📦 Instalación y Configuración
+## 📦 Installation and Setup
 
-Sigue estos pasos para configurar el proyecto localmente:
+Follow these steps to set up the project locally:
 
-1. Clona este repositorio:
+1. Clone this repository:
 
    ```bash
    git clone https://github.com/martxgomez/travels-app.git
 
    ```
 
-2. Navega al directorio del proyecto:
+2. Navigate to the project directory:
 
     ```bash
     cd travels-app
     ```
 
-3. Instala las dependencias necesarias:
+3. Install the necessary dependencies:
 
     ```bash
      npm install
+     npm install react-slick slick-carousel
     ```
 
-4. Configura las variables de entorno.
+4. Configure the environment variables.
 
-5. Inicia el servidor:
+5. Start the server:
 
     ```bash
      npm start
     ```
 
-6. Abre tu navegador y accede a http://localhost:3000.
+6. Open your browser and go to http://localhost:5173.
 
 ---
 
-## 📬 Contacto
+## 📬 Contact
 
-Si tienes preguntas o comentarios, puedes contactarnos a través de Github o LinkedIn.
+If you have any questions or comments, feel free to reach out through GitHub or LinkedIn.

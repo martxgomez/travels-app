@@ -66,6 +66,8 @@ function AddTripForm() {
         placeholder="Price"
         value={price}
         onChange={(e) => setPrice(e.target.value)}
+        min="0"
+        step="0.01" //allows to write a number with only 2 decimals maximum
       />
       <input
         type="text"
@@ -84,6 +86,8 @@ function AddTripForm() {
         placeholder="Rating"
         value={rating}
         onChange={(e) => setRating(e.target.value)}
+        min="0"
+        step="0.1"
       />
       <ActivitiesInput className="textarea"
 						activities={activities}

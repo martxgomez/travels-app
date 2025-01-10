@@ -12,7 +12,7 @@ function AboutPage() {
         
         <p className="description">
           {" "}
-          Hover Horizons is a website designed for travel enthusiasts. Here, you
+          ROUTIFY - Hover Horizons is a website designed for travel enthusiasts. Here, you
           can explore incredible destinations, manage your personal travel list,
           interact with a travel community, and customize your profile. This
           project was developed by Airam Santos, Andrea Bronzoni, and Marta
