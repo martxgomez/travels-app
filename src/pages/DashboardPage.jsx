@@ -102,7 +102,7 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
     return (
         <div className="dashboard-container">
         <div className="hero-image" >
-        <h2>Looking for a break?</h2>
+        <h2>Looking for a getaway?</h2>
         </div>
 
             {/* FILTER SECTION */}

@@ -1,15 +1,14 @@
 /* Fondo general */
 .travels-community-container {
-  background-image: url('../assets/gathering-home.jpg'); 
+  background-image: url("../assets/gathering-home.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   padding: 20px;
   min-height: 100vh;
   color: #fff;
-  
- 
 }
+
 
 /* Encabezado */
 .community-header {
@@ -29,7 +28,7 @@
 
 /* Tarjetas */
 .community-card {
-  background: rgba(255, 255, 255, 0.9); 
+  background: rgba(255, 255, 255, 0.9);
   color: #333;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

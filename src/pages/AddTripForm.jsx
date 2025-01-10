@@ -1,5 +1,5 @@
 //css
-
+import "./AddTripForm.css"
 //hooks
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -54,7 +54,7 @@ function AddTripForm() {
     }
   };
   return (
-    <form onSubmit={addTrip}>
+    <form className="form" onSubmit={addTrip}>
       <input
         type="text"
         placeholder="Destination"
@@ -85,22 +85,22 @@ function AddTripForm() {
         value={rating}
         onChange={(e) => setRating(e.target.value)}
       />
-      <ActivitiesInput
+      <ActivitiesInput className="textarea"
 						activities={activities}
 						setActivities={setActivities}
 					/>
     
-    <PlacesInput
+    <PlacesInput className="textarea"
 						places={places}
 						setPlaces={setPlaces}
 					/>
     
-      <textarea
+      <textarea className="input-container"
         placeholder="Notes"
         value={notes}
         onChange={(e) => setNotes(e.target.value)}
       ></textarea>
-      <button type="submit">Add Trip</button>
+      <button className="submit-btn" type="submit">Add Trip</button>
     </form>
   );
 }

@@ -20,7 +20,7 @@
   text-align: center;
   max-width: 800px;
   margin-bottom: 50px;
-  background: rgba(0, 0, 0, 0.6); 
+  background:  #4755486f;
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 20px;
@@ -49,7 +49,7 @@
 
 
 .coworker {
-  background: rgba(0, 0, 0, 0.6);
+  background:  #4755486f;
   backdrop-filter: blur(10px);
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
