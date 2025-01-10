@@ -20,7 +20,6 @@
 }
 
 .logo-container {
-  border: red solid;
   width: auto;
   left: 50px;
   font-size: 1.2em;
@@ -34,7 +33,6 @@
 }
 
 .info-container {
-  border: red solid;
   display: flex;
   gap: 120px;
   font-family: "Roboto", sans-serif;
@@ -55,10 +53,10 @@
   li {
     list-style: none;
 
-    font-size: 1.1em;
+    font-size: 1em;
   }
   li a {
-    font-size: 1.1em;
+    font-size: 1em;
     color: rgb(220, 220, 220);
     transition: color 0.3s ease;
   }
