@@ -73,6 +73,14 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
             return a.price - b.price;
         } else if (sortOption === "desc") {
             return b.price - a.price;
+        } else if (sortOption ==="alphabetically-asc") {
+            return a.destination.localeCompare(b.destination);
+        } else if (sortOption ==="alphabetically-desc") {
+            return b.destination.localeCompare(a.destination);
+        } else if (sortOption === "duration-asc") {
+            return a.duration - b.duration;
+        } else if (sortOption === "duration-desc") {
+            return b.duration - a.duration;
         }
         return 0;
     });
@@ -84,7 +92,7 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
     const maxAvailablePrice = travels.length ? Math.max(...travels.map((travel)=> travel.price)) : 0;
 
 
-// CREATION OF SORT    
+
     return (
            
             <div className="dashboard-container">
@@ -147,8 +155,37 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
             {/* SORT SECTION */}
             <fieldset className="sort-section">
                 <legend>Sort by</legend>
+                {/* INPUT TO ORDER ALPHABETICALLY */}
+                <label htmlFor="sort-alphabetically" className="sort-label">Alphabetically: </label>
+                <select
+                    id="sort-alphabetically"
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                    className= "sort-input"
+                    > 
+
+                    <option value="">Select</option>
+                    <option value="alphabetically-asc">A to Z</option>
+                    <option value="alphabetically-desc">Z to A</option>
+                </select>
+
+                {/* INPUT TO ORDER BY DURATION */}
+                <label htmlFor="sort-duration" className="sort-label">Duration: </label>
+                <select
+                    id="sort-duration"
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value)}
+                    className= "sort-input"
+                    > 
+
+                    <option value="">Select</option>
+                    <option value="duration-asc">Shorter to Longer</option>
+                    <option value="duration-desc">Longer to Shorter</option>
+                </select>
+
+
                 {/* INPUT TO ORDER BY PRICE */}
-                <label htmlFor="sort-price" className="filter-label">Price: </label>
+                <label htmlFor="sort-price" className="sort-label">Price: </label>
                 <select
                     id="sort-price"
                     value={sortOption}
@@ -160,6 +197,7 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
                     <option value="asc">Low to High</option>
                     <option value="desc">High to Low</option>
                 </select>
+
             </fieldset>
 
 

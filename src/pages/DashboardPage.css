@@ -10,7 +10,7 @@
   width: 200px;
 }
 
-.filter-section {
+.filter-section, .sort-section {
 border: 1px solid grey;
 padding: 1rem;
 margin-bottom: 1.5rem;
@@ -18,15 +18,18 @@ border-radius: 5px;
 background-color: rgb(238, 243, 235);
 width: 400px;
 margin: 0 auto;
+display:flex;
+flex-direction: column;
+align-items: center;
 }
 
-.filter-section legend {
+.filter-section legend, .sort-section legend {
 font-weight: bold;
 padding: 0 0.5rem;
 margin-bottom: 0.75rem;
 }
 
-.filter-input {
+.filter-input, .sort-input {
 display:block;
 width: 250px;
 max-width: 100%;
@@ -43,7 +46,7 @@ border-color: #007BFF;
 box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-.filter-label {
+.filter-label, .sort-label {
 font-weight: bold;
 margin-bottom: 0.25rem;
 display:block;
