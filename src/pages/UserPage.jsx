@@ -118,7 +118,7 @@ function UserPage() {
       {/* Show the entered data */}
       <div className="user-data">
         <h3>User Data:</h3>
-        <p><strong>Image:</strong> {image ? <img src={image} alt="Preview" style={{ width: "50px", height: "50px" }} /> : "Not available"}</p>
+        <p><strong>Image:</strong></p> {image ? <img src={image} alt="Preview" style={{ width: "50px", height: "50px" }} /> : <span>Not available</span>}
         <p><strong>Name of the user:</strong> {userName}</p>
         <p><strong>Complete name:</strong> {name}</p>
         <p><strong>Date of birth:</strong> {dateOfBirth}</p>
