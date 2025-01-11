@@ -272,6 +272,7 @@ input[type="number"]:focus {
   background-position: center;
   margin-bottom: 50px;
   display: flex;
+ 
 
   h2 {
     font-family: "Montserrat", serif;

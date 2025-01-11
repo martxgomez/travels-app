@@ -1,5 +1,5 @@
 //components
-import MyTravelCard from "./MyTravelCard.JSX";
+import MyTravelCard from "./MyTravelCard.jsx";
 import Slider from "react-slick";
 
 //Hooks
