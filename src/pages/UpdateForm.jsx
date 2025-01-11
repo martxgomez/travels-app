@@ -71,9 +71,10 @@ function UpdateForm() {
 
   //here starts the update form labels
   return (
+
     <div className="update-form">
       <h2>Edit Travel</h2>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <label>
           Destination:
           <input
@@ -128,7 +129,7 @@ function UpdateForm() {
 
         <label>
           Notes:
-          <textarea name="notes" value={travel.notes} onChange={handleChange} />
+          <textarea className="input-container" name="notes" value={travel.notes} onChange={handleChange} />
         </label>
 
         <label>
@@ -141,7 +142,7 @@ function UpdateForm() {
           />
         </label>
 
-        <button type="submit">Save Changes</button>
+        <button className="submit-btn" type="submit">Save Changes</button>
       </form>
     </div>
   );

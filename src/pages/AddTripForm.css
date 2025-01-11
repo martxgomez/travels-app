@@ -80,3 +80,8 @@ textarea {
 textarea {
   min-height: 150px;
 }
+
+.update-form h2{
+  margin-top: 20px;
+  font-size: 2.5em;
+}
