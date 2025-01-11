@@ -23,7 +23,7 @@ function MyTravelCard({
             <h2>{destination}</h2>
             <div className="rating">⭐ {rating}/5</div>
           </div>
-        <p>{duration} días</p>
+        <p>{duration} days</p>
         <p>{price}€</p>
       </div>
     </Link>
