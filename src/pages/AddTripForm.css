@@ -1,12 +1,11 @@
 .form {
-  height: 700px;
+  min-height: 700px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
   width: 100%;
-  width: 600px;
   padding-top: 20px;
  
 }
@@ -79,5 +78,5 @@ textarea {
 }
 
 textarea {
-  height: 200px;
+  min-height: 150px;
 }

@@ -48,75 +48,100 @@ function MyTravelsDetailsPage({ deleteTravel }) {
 
   return (
     <div className="details-page">
-      <button onClick={() => setShowConfirmation(true)} className="btn-delete">
-        x
-      </button>
-
-      {/* pop-up window to double-check if the user wants to delete de travel */}
-      {showConfirmation && (
-        <div className="pop-up-container">
-          <div className="pop-up-content">
-            <h3>Are you sure you want to delete this travel?</h3>
-            <div className="pop-up-buttons">
-              <button
-                onClick={() => setShowConfirmation(false)}
-                className="btn-cancel"
-              >
-                NO
-              </button>
-              <button onClick={handleDelete} className="btn-confirm">
-                YES
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-      <button onClick={() => navigate(`/edit-travel/${travelId}`)}>Edit</button>
-      <h2>Details for {travel.destination}</h2>
       <img
         src={travel.imageLink}
         alt={travel.destination}
         className="travel-image"
       />
-      <p>
-        <strong>Description:</strong> {travel.description}
-      </p>
-      <p>
-        <strong>Price:</strong> €{travel.price}
-      </p>
-      <p>
-        <strong>Duration:</strong> {travel.duration}
-      </p>
-      <p>
-        <strong>Activities:</strong>
-      </p>
-      {travel.activities.map((activity) => (
-        <div key={Math.random()}>
-          <ul>
-            <li>{activity}</li>
-          </ul>
-        </div>
-      ))}
+      <section className="content-container">
+        <h2>{travel.destination}</h2>
+        <section className="details-container">
+          <section className="info-column1">
+            <article className="title">
+              <strong>Activities</strong>
+            </article>
+            <article className="info">
+              {travel.activities.map((activity) => (
+                <div key={Math.random()}>
+                  <ul>
+                    <li>{activity}</li>
+                  </ul>
+                </div>
+              ))}
+            </article>
 
-      <p>
-        <strong>Places:</strong>
-      </p>
-      {travel.places.map((place) => (
-        <div key={Math.random()}>
-          <ul>
-            <li>{place}</li>
-          </ul>
-        </div>
-      ))}
-      <p>
-        <strong>Notes:</strong> {travel.notes}
-      </p>
+            <article className="title">
+              <strong>Places to visit</strong>
+            </article>
+            <article className="info">
+              {travel.places.map((place) => (
+                <div key={Math.random()}>
+                  <ul>
+                    <li>{place}</li>
+                  </ul>
+                </div>
+              ))}
+            </article>
+            <article className="title">
+              <strong>Notes</strong>
+            </article>
+            <article className="info">{travel.notes}</article>
 
-      <Link to="/my-trips" className="back-btn">
-        Back
-      </Link>
+
+
+            <section className="buttons">
+            <button
+              className="delete-btn"
+              onClick={() => setShowConfirmation(true)}
+            >
+              Delete
+            </button>
+
+            {/* pop-up window to double-check if the user wants to delete de travel */}
+            {showConfirmation && (
+              <div className="pop-up-container">
+                <div className="pop-up-content">
+                  <h3>Are you sure you want to delete this travel?</h3>
+                  <div className="pop-up-buttons">
+                    <button
+                      onClick={() => setShowConfirmation(false)}
+                      className="btn-cancel"
+                    >
+                      NO
+                    </button>
+                    <button onClick={handleDelete} className="btn-confirm">
+                      YES
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+            <button
+              className="edit-btn"
+              onClick={() => navigate(`/edit-travel/${travelId}`)}
+            >
+              Edit
+            </button>
+            </section>
+          </section>
+
+          <section className="info-column2">
+            <article className="title">
+              <strong>Duration</strong>
+            </article>
+            <article className="info">{travel.duration} Days</article>
+
+            <article className="title">
+              <strong>Price</strong>
+            </article>
+            <article className="info">{travel.price} €</article>
+            <Link to="/my-trips" className="back-btn">
+              Back
+            </Link>
+          </section>
+        </section>{" "}
+      </section>
     </div>
   );
 }
-
 export default MyTravelsDetailsPage;

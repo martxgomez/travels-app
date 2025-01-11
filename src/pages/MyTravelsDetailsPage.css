@@ -16,9 +16,11 @@
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 300px;
+    width: auto;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
   }
   
   .pop-up-buttons {
@@ -37,7 +39,7 @@
   }
   
   .btn-confirm {
-    background-color: red;
+    background-color: #6d0f0e ;
     color: white;
     padding: 8px 16px;
     border: none;
@@ -49,7 +51,7 @@
     background-color: transparent;
     border: none;
     font-size: 20px;
-    color: red;
+    color:#6d0f0e ;
     cursor: pointer;
   }
   
