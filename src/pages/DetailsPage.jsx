@@ -26,7 +26,7 @@ function DetailsPage() {
 
       if (error) {
         console.error("Error fetching travel:", error.message);
-        setError("Travel not found!");
+        setError("Travel not found!"); // muy buena práctica añadir feedback al usuario en caso de error
       } else {
         setTravel(data);
       }
@@ -34,7 +34,7 @@ function DetailsPage() {
     };
 
     fetchTravel();
-  }, [travelId]);
+  }, [travelId]); // buen punto añadir travelId como dependencia, esto hará que se ejecute el useEffect cada vez que cambie el travelId
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error}</p>;

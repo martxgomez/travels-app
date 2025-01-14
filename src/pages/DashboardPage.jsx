@@ -68,7 +68,7 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
         return matchesDestination && matchesDuration && matchesPrice; 
     })
 
-    .sort ((a, b) => {
+    .sort ((a, b) => { // este else if es demasiado largo, se hace muy complicado de leer. Se puede hacer un switch case
         if (sortOption === "asc") {
             return a.price - b.price;
         } else if (sortOption === "desc") {
@@ -240,5 +240,7 @@ function Dashboardpage ({travels, favorites, addFavorite}) {
     </div>
   );
 }
+
+// Recordad formatear el código! "alt + shift + f" u "option + shift + f"
 
 export default Dashboardpage;

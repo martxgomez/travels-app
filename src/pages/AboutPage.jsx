@@ -82,4 +82,6 @@ function AboutPage() {
   );
 }
 
+// En este componente repetimos el mismo div por cada persona, podemos tener un archivo con una variable que contenga un array con la información de cada persona, importar el array aquí y hacer un map para recorrerla y renderizarla.
+
 export default AboutPage;

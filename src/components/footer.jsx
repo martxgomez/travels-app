@@ -1,6 +1,10 @@
 import "./footer.css";
 
 function Footer() {
+  // truco para actualizar el año automáticamente 🥳
+  const date = new Date();
+  const year = date.getFullYear();
+
   return (
     <footer className="footer">
       <p>
@@ -12,7 +16,7 @@ function Footer() {
         </a>
       </p>
       <br />
-      <p className="rights-container"> © 2025 Routify. All rights reserved. </p>
+      <p className="rights-container">© {year} Routify. All rights reserved.</p>
     </footer>
   );
 }
