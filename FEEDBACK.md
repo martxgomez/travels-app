@@ -97,6 +97,10 @@ Valorad también si los comentarios son necesarios. Por ejemplo, si tengo una fu
 
 - La asincronía está bien gestionada. Parece que hay coherencia en todos los métodos excepto uno llamado getData que usáis una sintaxis diferente a la de los otros métodos.
 
+## Readme
+
+- El readme está bien estructurado y contiene toda la información necesaria para poder ejecutar la app. ¡Buen trabajo! Solamente hay un error en la parte de instalación de dependencias. Solamente es necesario hacer `npm install` una vez. Esto ya añade todas las dependencias necesarias al proyecto que están en el `package.json`.
+
 ## Conclusiones
 
 ### Glows
