@@ -62,7 +62,7 @@ function MyTravelsDetailsPage({ deleteTravel }) {
             </article>
             <article className="info">
               {travel.activities.map((activity) => (
-                <div key={Math.random()}>
+                <div key={Math.random()}> {/* no es buena práctica usar Math.random() como key, es preferible usar el ID, si no tenemos ID, podemos usar el index */}
                   <ul>
                     <li>{activity}</li>
                   </ul>

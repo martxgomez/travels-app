@@ -11,6 +11,8 @@ import supabase from "../supabase/config.js"
 import ActivitiesInput from "../components/ActivitiesInput.jsx";
 import PlacesInput from "../components/PlacesInput.jsx";
 
+// Buena práctica: separar los imports para tener mejor organización
+
 function AddTripForm() {
   const [destination, setDestination] = useState("");
   const [price, setPrice] = useState("");
