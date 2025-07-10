@@ -1,0 +1,16 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # cada 6 horas
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Curl Supabase to keep alive
+        run: |
+          curl -s "https://<TU-PROYECTO>.supabase.co/rest/v1/<TU-TABLA>?limit=1" \
+          -H "apikey: <TU-API-KEY>" \
+          -H "Authorization: Bearer <TU-SERVICE-ROLE-KEY>"
